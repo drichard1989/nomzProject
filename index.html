@@ -1,113 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Nomz Site</title>
-
-
-	<!-- This is the link to Bootstrap, which I downloaded so we can edit.  -->
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-
-	<!-- This is the link to JQuery's CDN. -->
-	<script
-  src="https://code.jquery.com/jquery-3.1.1.js"
-  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-  crossorigin="anonymous"></script>
-
-  	<!-- This is the link to make my site mobile responsive.  -->
- 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+	<title>nomz</title>
+	<!-- favicon -->
+	<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+	<!-- linking CSS reset file -->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<!-- linking CSS file -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- linking bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-
-
-<div class="container">
- 
-<!-- .navbar-fixed-top, or .navbar-fixed-bottom can be added to keep the nav bar fixed on the screen -->
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
- 
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
- 
-      <!-- Button that toggles the navbar on and off on small screens -->
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
- 
-      <!-- Hides information from screen readers -->
-        <span class="sr-only"></span>
- 
-        <!-- Draws 3 bars in navbar button when in small mode -->
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
- 
-    </div>
- 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">About</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-</div>
-
-
-
-	<div class="container marginTop">
-		<!-- Spacing Column. -->
-		<div class="col-lg-2 col-md-2">
-			
-		</div>
-		<!-- Column for the Logo and the description of the page. -->
-		<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 headerRow">
-
-		      <img src="assets/images/nomzLogo.png" alt="..." class="mainLogo">
-		      <div class="caption">
-		        <small>search for any food you like<small>
-		      </div>
-	  	</div>
-		<!-- Spacing Column. -->
-		<div class="col-lg-2 col-md-2">
-			
-		</div>
-	</div>
-
+	<!-- jumbotron -->
 	<div class="container">
-		<!-- Spacing Column. -->
-		<div class="col-lg-3 col-md-3">
-			
-		</div>
-		<!-- Column for the foodSearchBox and the foodSearchButton. -->
-		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-			<div class="input-group input-group-sm">
-	  			<input type="text" class="form-control" placeholder="Pineapples" id="foodSearchBox">
-	  			<span class="input-group-btn">
-	    			<button class="btn btn-default" type="button" id="foodSearchButton">Add</button>
-	  			</span>
-			</div>
-		</div>
-		<!-- Spacing Column. -->
-		<div class="col-lg-3 col-md-3">
-			
-		</div>
-
-	<!-- Container Closing Tag	 -->
+		<br>
+ 		<div class="jumbotron">
+    		<img class="img-responsive center-block" src="assets/images/logo.png" height="300" width="500">
+    		<br>
+  			<div class="row">
+  				<div class="col-lg-2"></div>
+  				<div class="col-lg-8">
+    				<!-- input form -->
+    				<div class="input-group">
+      					<input type="text" id="foodSearchBox" class="form-control" placeholder="pineapple">
+      						<!-- submit button -->
+      						<span class="input-group-btn">
+        						<button id="foodSearchButton" class="btn btn-success" type="button">add</button>
+      						</span>
+    				</div><!-- /input-group -->
+  				</div><!-- /.col-lg-8 -->
+				<div class="col-lg-2"></div>
+			</div><!-- /.row -->
+  		</div>
 	</div>
+	<!-- end jumbotron -->
+	
+	<!-- main content -->
+	<!-- end main content -->
 
-
-
-
-
-
-
-
-
-
-<!-- This is the link to the JavaScript file. -->
-	<!-- <script type="text/javascript" src="#"></script> -->
+	<!-- footer -->
+	<footer class="footer text-center">
+      <div class="container">
+        <p class="text-muted">&copy; copyright 2016 paid productions</p>
+      </div>
+    </footer>
+    <!-- linking jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- linking bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- linking JS file -->
+	<script type="text/javascript" src="assets/javascript/javascript.js"></script>
 </body>
 </html>
