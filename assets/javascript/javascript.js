@@ -42,14 +42,14 @@ $(document).ready(function(){
   	   $("#foodSearchBox").val("");
 
   	return false;
-  });
+  }); // closes the foodSearchButton function
 
-  // // function that triggers the submit button when users hit "enter"
+  // function that triggers the submit button when users hit "enter"
   $("#foodSearchBox").keyup(function(event){
     if(event.keyCode == 13){
       $("#foodSearchButton").click();
     }
-  });
-  // end function that triggers the submit button when pressing "enter"
+  }); // end function that triggers the submit button when pressing "enter"
+  
 
 });
