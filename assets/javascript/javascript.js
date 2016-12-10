@@ -33,10 +33,11 @@ $(document).ready(function(){
       console.log(profilePicUrl);
       console.log(userName);   
 
-      $("#userImage").attr("src", profilePicUrl);
-      $("#userName").html(userName);
+      
 
       if (user) {
+      	$("#userImage").attr("src", profilePicUrl);
+        $("#userName").html(userName);
       	$("#signOut").show();
       	$("#signInDropdown").hide();
       };
