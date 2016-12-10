@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-
+	var profilePicUrl;
+	var userName;
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBEsEbAIqr60HleiXsvIcx-lko9l4Bnp6U",
@@ -23,6 +24,11 @@ $(document).ready(function(){
 	  var token = result.credential.accessToken;
 	  // The signed-in user info.
 	  var user = result.user;
+
+	  profilePicUrl = user.photoURL; // Only change these two lines!
+      userName = user.displayName;   // Only change these two lines!
+
+     
 	  // ...
 	}).catch(function(error) {
 	  // Handle Errors here.
@@ -36,16 +42,9 @@ $(document).ready(function(){
 	});
 
 
-// Triggers when the auth state change for instance when the user signs-in or signs-out.
-FriendlyChat.prototype.onAuthStateChanged = function(user) {
-  if (user) { // User is signed in!
-    // Get profile pic and user's name from the Firebase user object.
-    var profilePicUrl = user.photoURL; // Only change these two lines!
-    var userName = user.displayName;   // Only change these two lines!
 
-};
-
-
+ console.log(profilePicUrl);
+      console.log(userName);
 
 
   $("#foodSearchButton").on("click", function(){
