@@ -36,9 +36,10 @@ $(document).ready(function(){
       
 
       if (user) {
-      	$("#userThumbnailImage").attr("src", profilePicUrl).show();
+      	$("#userImage").attr("src", profilePicUrl);
+      	$("#userThumbnailImage").show();
         $("#userName").html(userName);
-      	$("#signOut").show();
+      	$("#signOutButton").show();
       	$("#signInDropdown").hide();
       };
 	});
