@@ -34,6 +34,11 @@ $(document).ready(function(){
       $("#userImage").attr("src", profilePicUrl);
       $("#userName").html(userName);
 
+      if (user) {
+      	$("#signOut").show();
+      	$("#signInDropdown").hide();
+      }
+
      
 	  // ...
 	}).catch(function(error) {
