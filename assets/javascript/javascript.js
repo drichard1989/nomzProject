@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-
+	var profilePicUrl;
+	var userName;
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBEsEbAIqr60HleiXsvIcx-lko9l4Bnp6U",
@@ -13,13 +14,62 @@ $(document).ready(function(){
 
   var database = firebase.database();
 
+
+// This all pertains to logging in to Google with Authentication
+
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+  $("#signInDropdown").on("click", "#googleSignInButton", function(){
+
+	firebase.auth().signInWithPopup(provider).then(function(result) {
+	  // This gives you a Google Access Token. You can use it to access the Google API.
+	  var token = result.credential.accessToken;
+	  // The signed-in user info.
+	  var user = result.user;
+
+	  profilePicUrl = user.photoURL; 
+      userName = user.displayName;
+
+      console.log(profilePicUrl);
+      console.log(userName);   
+
+      
+
+      if (user) {
+      	$("#userImage").attr("src", profilePicUrl);
+      	$("#userThumbnailImage").show();
+        $("#userName").html(userName);
+      	$("#signOutButton").show();
+      	$("#signInDropdown").hide();
+      };
+	});
+
+  $("#navbarParent").on("click", "#signOutButton", function(){
+
+  	firebase.auth().signOut().then(function() {
+  	console.log('Signed Out');
+	}, 
+	function(error) {
+  	console.error('Sign Out Error', error);
+	});
+  });
+
+});
+
+
+
+
+
+		
+
+
   $("#foodSearchButton").on("click", function(){
 
     if ($('#foodSearchBox').val().trim() === ""){
       $('#addFoodItemModal').modal();
         } else {
           console.log("food button working")
-        // the animal from the textbox is then added to our array
+        // the food from the searchox is trimmed and added 
 
         var foodItem = $("#foodSearchBox").val().trim();
 
