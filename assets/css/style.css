@@ -6,10 +6,12 @@ body{
   background-size: cover;
 }
 
-.jumbotron {
-	margin-top: 10%;
-  background: rgb(200, 54, 54); /* This is for ie8 and below */
-  background-color: rgba(200, 54, 54, 0.5); 
+footer {
+  color: #ffffff;
+}
+
+.title {
+  margin-top: 15%;
 }
 
 /*changes modal header color to match color scheme of page, border radius change gives rounded edges*/
