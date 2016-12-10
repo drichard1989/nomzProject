@@ -43,7 +43,7 @@ $(document).ready(function(){
       };
 	});
 
-  $("#navbarParent").on("click", "#signOutButton" function(){
+  $("#navbarParent").on("click", "#signOutButton", function(){
 
   	firebase.auth().signOut().then(function() {
   	console.log('Signed Out');
