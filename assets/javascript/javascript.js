@@ -36,7 +36,7 @@ $(document).ready(function(){
       
 
       if (user) {
-      	$("#userImage").attr("src", profilePicUrl).show();
+      	$("#userThumbnailImage").attr("src", profilePicUrl).show();
         $("#userName").html(userName);
       	$("#signOut").show();
       	$("#signInDropdown").hide();
