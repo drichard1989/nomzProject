@@ -34,6 +34,8 @@ firebase.auth().getRedirectResult().then(function(result) {
   // The firebase.auth.AuthCredential type that was used.
   var credential = error.credential;
   // ...
+
+  return false;
 });
 
 
