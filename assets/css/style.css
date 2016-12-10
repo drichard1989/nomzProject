@@ -6,6 +6,16 @@ body{
   background-size: cover;
 }
 
+
+
+.navbar-brand img {
+    width: 40px;
+    height: auto;
+    margin-top: -10px;
+    border-radius: 5000px;
+}
+
+
 .jumbotron {
 	margin-top: 10%;
   background: rgb(200, 54, 54); /* This is for ie8 and below */
