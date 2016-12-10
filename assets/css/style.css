@@ -1,5 +1,15 @@
+body{ 
+  background: url(../images/nomzBG.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .jumbotron {
 	margin-top: 10%;
+  background: rgb(200, 54, 54); /* This is for ie8 and below */
+  background-color: rgba(200, 54, 54, 0.5); 
 }
 
 /*changes modal header color to match color scheme of page, border radius change gives rounded edges*/
