@@ -19,6 +19,8 @@ $(document).ready(function(){
 
   var provider = new firebase.auth.GoogleAuthProvider();
 
+  // $("#signInDropdown").on("click", "#googleSignInButton", function(){
+
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 	  // This gives you a Google Access Token. You can use it to access the Google API.
 	  var token = result.credential.accessToken;
@@ -31,18 +33,30 @@ $(document).ready(function(){
       console.log(profilePicUrl);
       console.log(userName);   
 
-     
-	  // ...
-	}).catch(function(error) {
-	  // Handle Errors here.
-	  var errorCode = error.code;
-	  var errorMessage = error.message;
-	  // The email of the user's account used.
-	  var email = error.email;
-	  // The firebase.auth.AuthCredential type that was used.
-	  var credential = error.credential;
-	  // ...
-	});
+      
+
+      if (user) {
+      	$("#userImage").attr("src", profilePicUrl);
+      	$("#userThumbnailImage").show();
+        $("#userName").html(userName);
+      	$("#signOutButton").show();
+      	$("#signInDropdown").hide();
+      };
+	// });
+
+ //  $("#navbarParent").on("click", "#signOutButton", function(){
+
+ //  	firebase.auth().signOut().then(function() {
+ //  	console.log('Signed Out');
+	// }, 
+	// function(error) {
+ //  	console.error('Sign Out Error', error);
+	// });
+ //  });
+
+});
+
+
 
 
 
@@ -88,4 +102,5 @@ $(document).ready(function(){
   }); // end function that triggers the submit button when pressing "enter"
   
 
-});
+
+}); // closes document.ready

@@ -6,12 +6,29 @@ body{
   background-size: cover;
 }
 
+<<<<<<< HEAD
 footer {
   color: #ffffff;
 }
 
 .title {
   margin-top: 15%;
+=======
+
+
+.navbar-brand img {
+    width: 40px;
+    height: auto;
+    margin-top: -10px;
+    border-radius: 5000px;
+}
+
+
+.jumbotron {
+	margin-top: 10%;
+  background: rgb(200, 54, 54); /* This is for ie8 and below */
+  background-color: rgba(200, 54, 54, 0.5); 
+>>>>>>> 75426b5a3a857686283c3db3f59eff36915a61bf
 }
 
 /*changes modal header color to match color scheme of page, border radius change gives rounded edges*/
