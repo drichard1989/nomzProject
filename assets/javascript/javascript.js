@@ -25,8 +25,11 @@ $(document).ready(function(){
 	  // The signed-in user info.
 	  var user = result.user;
 
-	  profilePicUrl = user.photoURL; // Only change these two lines!
-      userName = user.displayName;   // Only change these two lines!
+	  profilePicUrl = user.photoURL; 
+      userName = user.displayName;
+
+      console.log(profilePicUrl);
+      console.log(userName);   
 
      
 	  // ...
@@ -43,8 +46,7 @@ $(document).ready(function(){
 
 
 
- console.log(profilePicUrl);
-      console.log(userName);
+		
 
 
   $("#foodSearchButton").on("click", function(){
@@ -53,7 +55,7 @@ $(document).ready(function(){
       $('#addFoodItemModal').modal();
         } else {
           console.log("food button working")
-        // the animal from the textbox is then added to our array
+        // the food from the searchox is trimmed and added 
 
         var foodItem = $("#foodSearchBox").val().trim();
 
