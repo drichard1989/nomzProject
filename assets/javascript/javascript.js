@@ -36,7 +36,7 @@ $(document).ready(function(){
       
 
       if (user) {
-      	$("#userImage").attr("src", profilePicUrl);
+      	$("#userImage").attr("src", profilePicUrl).show();
         $("#userName").html(userName);
       	$("#signOut").show();
       	$("#signInDropdown").hide();
@@ -51,7 +51,7 @@ $(document).ready(function(){
 	function(error) {
   	console.error('Sign Out Error', error);
 	});
-  })
+  });
 
 });
 
