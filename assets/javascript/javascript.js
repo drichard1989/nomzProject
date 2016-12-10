@@ -52,4 +52,5 @@ $(document).ready(function(){
   }); // end function that triggers the submit button when pressing "enter"
   
 
-});
+
+}); // closes document.ready
