@@ -39,8 +39,38 @@
 	
 	<!-- main content -->
 	<!-- end main content -->
-
+	<!-- modal -->
+	<!-- modal -->
+	<div class="container">
+  		<!-- time up modal -->
+  		<div class="modal fade" id="addFoodItemModal" role="dialog">
+    		<div class="modal-dialog modal-sm" align="center">
+      			<div class="modal-content">
+       				 <div class="modal-header">
+          				<h4 class="modal-title">error</h4>
+        			</div>
+        			<div class="modal-body">
+          				<p>please add an item</p>
+        			</div>
+        			<div class="modal-footer">
+          			<button type="button" class="btn btn-success" data-dismiss="modal">close</button>
+        			</div>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+	<!-- end modal -->
+	<!-- end modal -->
 	<!-- footer -->
+	
+	<!-- Empty div for appending the items -->
+	<div class="container">
+		<div class="row" id="list-container">
+			
+		</div>
+	</div> 
+	<!-- Closes the container that holds the lists -->
+	
 	<footer class="footer text-center">
       <div class="container">
         <p class="text-muted">&copy; copyright 2016 paid productions</p>
@@ -50,9 +80,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<!-- linking bootstrap JS -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<!-- linking JS file -->
-	<script type="text/javascript" src="assets/javascript/javascript.js"></script>
 	<!-- Linking firebase -->
 	<script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+	<!-- linking JS files -->
+	<script type="text/javascript" src="assets/javascript/javascript.js"></script>
+	<script type="text/javascript" src="assets/javascript/api.js"></script>
 </body>
 </html>

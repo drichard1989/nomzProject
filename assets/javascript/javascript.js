@@ -15,35 +15,41 @@ $(document).ready(function(){
 
   $("#foodSearchButton").on("click", function(){
 
+    if ($('#foodSearchBox').val().trim() === ""){
+      $('#addFoodItemModal').modal();
+        } else {
+          console.log("food button working")
+        // the animal from the textbox is then added to our array
 
-  	console.log("Button Working");
-
-  	var foodItem = $("#foodSearchBox").val().trim();
-
-
-  	// Create local "temporary" object for holding food information
-
-  	var newFood = {
-  		foodItem: foodItem
-  	};
+        var foodItem = $("#foodSearchBox").val().trim();
 
 
+        // Create local "temporary" object for holding food information
 
-  	// Uploads new food item to the database
-  	database.ref().push(newFood);
+        var newFood = {
+          foodItem: foodItem
+        };
 
-  	// Logs the information to the console
-  	console.log(newFood.foodItem);
+        // Uploads new food item to the database
+        database.ref().push(newFood);
 
-  	alert("Your food has been added. Now Ian drinks more wine.");
+        // Logs the information to the console
+        console.log(newFood.foodItem);
+        } 
 
-  	// Clear the search boxes
+  	     // Clear the search boxes
 
-  	$("#foodSearchButton").val("");
+  	   $("#foodSearchBox").val("");
 
   	return false;
-  });
+  }); // closes the foodSearchButton function
 
-
+  // function that triggers the submit button when users hit "enter"
+  $("#foodSearchBox").keyup(function(event){
+    if(event.keyCode == 13){
+      $("#foodSearchButton").click();
+    }
+  }); // end function that triggers the submit button when pressing "enter"
+  
 
 });
