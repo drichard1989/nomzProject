@@ -80,16 +80,10 @@ $(document).ready(function(){
         // Create local "temporary" object for holding food information
 
 
-        // var newFood = {
-        //   foodItem: foodItem
-        // };
-
-        var userRef = ref.child("users");
-        var newFood = usersRef.child();
-
-        newFood.update({
+        var newFood = {
           foodItem: foodItem
-        });
+        };
+
         // Uploads new food item to the database
         database.ref().push(newFood);
 
