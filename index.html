@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>nomz</title>
-	<!-- favicon -->
-	<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-	<!-- linking CSS reset file -->
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<!-- linking CSS file -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<!-- linking bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>nomz</title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <!-- linking CSS reset file -->
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <!-- linking CSS file -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- linking bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-<!-- navbar -->
-<nav class="navbar navbar-default navbar-inverse" role="navigation">
+
+  <!-- main title -->
+  <div class="container title">
+
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -24,154 +28,113 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="assets/images/nomzIcon.png" height="35" width="25" alt=""><!-- nomz --></a>
+     <a class="navbar-brand" href="#"><img src="assets/images/nomzIcon.png" height="35" width="25" alt=""></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">link</a></li>
-        <li><a href="#">link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">action</a></li>
-            <li><a href="#">another action</a></li>
-            <li><a href="#">something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">one more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-success">add</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text">already have an account?</p></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>login</b> <span class="caret"></span></a>
-      <ul id="login-dp" class="dropdown-menu">
-        <li>
-           <div class="row">
-              <div class="col-md-12">
-                login via
-                <div class="social-buttons">
-                  <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> facebook</a>
-                  <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> twitter</a>
-                </div>or
-                 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                    <div class="form-group">
-                       <label class="sr-only" for="exampleInputEmail2">email address</label>
-                       <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
-                    </div>
-                    <div class="form-group">
-                       <label class="sr-only" for="exampleInputPassword2">password</label>
-                       <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                             <div class="help-block text-right"><a href="">forget the password?</a></div>
-                    </div>
-                    <div class="form-group">
-                       <button type="submit" class="btn btn-primary btn-block">sign in</button>
-                    </div>
-                    <div class="checkbox">
-                       <label>
-                       <input type="checkbox"> keep me logged-in
-                       </label>
-                    </div>
-                 </form>
-              </div>
-              <div class="bottom text-center">
-                New here ? <a href="#"><b>Join Us</b></a>
-              </div>
-           </div>
-        </li>
-      </ul>
-        </li>
+        
+      <ul class="nav navbar-nav navbar-right" id="navbarParent">
+
+
+    <li style="display: none;" id="userThumbnailImage"><a class="navbar-brand" href="#">
+                        <img alt="Brand" id="userImage" src="#">
+        </a></li>
+        <li id="userName"></li>
+        <li style="display: none;" id="signOutButton"><a href="#">sign out</a></li>
+        <li class="dropdown" id="signInDropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" id="googleSignInButton">Google</a></li>
+                  <li><a href="#">Facebook</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+          </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<!-- end navbar -->
-
-	<!-- main title -->
-	<div class="container title">
-
-	<!-- jumbotron -->
-	<div class="container">
-
-		<br>
-    		<img class="img-responsive center-block" src="assets/images/logo1.png" height="300" width="500">
-    		<br>
-  			<div class="row">
-  				<div class="col-lg-2"></div>
-  				<div class="col-lg-8">
-    				<!-- input form -->
-    				<div class="input-group">
-      					<input type="text" id="foodSearchBox" class="form-control" placeholder="pineapple">
-      						<!-- submit button -->
-      						<span class="input-group-btn">
-        						<button id="foodSearchButton" class="btn btn-success" type="button">add</button>
-      						</span>
-    				</div><!-- /input-group -->
-  				</div><!-- /.col-lg-8 -->
-				<div class="col-lg-2"></div>
-			</div><!-- /.row -->
-	</div>
-	<!-- end main title -->
-	<!-- main content -->
-	<!-- end main content -->
-	<!-- modal -->
-	<!-- modal -->
-	<div class="container">
-  		<!-- time up modal -->
-  		<div class="modal fade" id="addFoodItemModal" role="dialog">
-    		<div class="modal-dialog modal-sm" align="center">
-      			<div class="modal-content">
-       				 <div class="modal-header">
-          				<h4 class="modal-title">error</h4>
-        			</div>
-        			<div class="modal-body">
-          				<p>please add an item</p>
-        			</div>
-        			<div class="modal-footer">
-          			<button type="button" class="btn btn-success" data-dismiss="modal">close</button>
-        			</div>
-      			</div>
-    		</div>
-  		</div>
-	</div>
-	<!-- end modal -->
-	<!-- end modal -->
-	<!-- footer -->
-	
-	<!-- Empty div for appending the items -->
-	<div class="container" id="list-container">
-
-	</div> 
-	<!-- Closes the container that holds the lists -->
-
-	
-	<footer class="footer text-center navbar-fixed-bottom">
 
 
-	<footer class="footer text-center">
+
+
+
+
+  <!-- jumbotron -->
+  <div class="container">
+
+    <br>
+        <img class="img-responsive center-block" src="assets/images/logo1.png" height="300" width="500">
+        <br>
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            <!-- input form -->
+            <div class="input-group">
+                <input type="text" id="foodSearchBox" class="form-control" placeholder="pineapple">
+                  <!-- submit button -->
+                  <span class="input-group-btn">
+                    <button id="foodSearchButton" class="btn btn-success" type="button">add</button>
+                  </span>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-8 -->
+        <div class="col-lg-2"></div>
+      </div><!-- /.row -->
+  </div>
+  <!-- end main title -->
+  <!-- main content -->
+  <!-- end main content -->
+  <!-- modal -->
+  <!-- modal -->
+  <div class="container">
+      <!-- time up modal -->
+      <div class="modal fade" id="addFoodItemModal" role="dialog">
+        <div class="modal-dialog modal-sm" align="center">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h4 class="modal-title">error</h4>
+              </div>
+              <div class="modal-body">
+                  <p>please add an item</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">close</button>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
+  <!-- end modal -->
+  <!-- end modal -->
+  <!-- footer -->
+  
+  <!-- Empty div for appending the items -->
+  <div class="container" id="list-container">
+
+  </div> 
+  <!-- Closes the container that holds the lists -->
+
+  
+  <footer class="footer text-center navbar-fixed-bottom">
+
+
+  <footer class="footer text-center">
 
       <div class="container">
         <p>&copy; copyright 2016 paid productions</p>
       </div>
     </footer>
     <!-- linking jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<!-- linking bootstrap JS -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<!-- Linking firebase -->
-	<script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
-	<!-- linking JS files -->
-	<script type="text/javascript" src="assets/javascript/javascript.js"></script>
-	<script type="text/javascript" src="assets/javascript/api.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- linking bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Linking firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+  <!-- linking JS files -->
+  <script type="text/javascript" src="assets/javascript/javascript.js"></script>
+  <script type="text/javascript" src="assets/javascript/api.js"></script>
 </body>
 </html>
