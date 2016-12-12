@@ -10,6 +10,8 @@ $(document).ready(function(){
     storageBucket: "nomz-5b99c.appspot.com",
     messagingSenderId: "655959060095"
   };
+
+
   firebase.initializeApp(config);
 
   var database = firebase.database();
@@ -93,6 +95,16 @@ $(document).ready(function(){
 
   	return false;
   }); // closes the foodSearchButton function
+
+
+
+
+
+
+
+
+
+
 
   // function that triggers the submit button when users hit "enter"
   $("#foodSearchBox").keyup(function(event){
