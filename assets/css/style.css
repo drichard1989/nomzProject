@@ -9,7 +9,9 @@ body{
 footer {
   color: #ffffff;
 }
-
+#userImage {
+  border-radius: 5000px;
+}
 .title {
   margin-top: 10%;
 }
