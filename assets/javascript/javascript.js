@@ -84,6 +84,7 @@ $(document).ready(function(){
         //   foodItem: foodItem
         // };
 
+        var userRef = ref.child("users");
         var newFood = usersRef.child();
 
         newFood.update({
