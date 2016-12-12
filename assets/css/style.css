@@ -6,28 +6,17 @@ body{
   background-size: cover;
 }
 
-
 footer {
   color: #ffffff;
 }
 
 .title {
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
-
-.navbar-brand img {
-    width: 40px;
-    height: auto;
-    margin-top: -10px;
-    border-radius: 5000px;
-}
-
-
-.jumbotron {
-	margin-top: 10%;
-  background: rgb(200, 54, 54); /* This is for ie8 and below */
-  background-color: rgba(200, 54, 54, 0.5); 
+a.navbar-brand 
+{
+    padding-top: 5px;
 }
 
 /*changes modal header color to match color scheme of page, border radius change gives rounded edges*/
@@ -54,4 +43,50 @@ footer {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
+}
+
+/*navbar*/
+nav.navbar.navbar-default.navbar-inverse {
+  border-radius: 0px;
+}
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px    
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0    
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc 
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
 }
