@@ -17,6 +17,7 @@ $(document).ready(function(){
   var database = firebase.database();
 
 
+
 // This all pertains to logging in to Google with Authentication
 
   var provider = new firebase.auth.GoogleAuthProvider();
@@ -78,10 +79,16 @@ $(document).ready(function(){
 
         // Create local "temporary" object for holding food information
 
-        var newFood = {
-          foodItem: foodItem
-        };
 
+        // var newFood = {
+        //   foodItem: foodItem
+        // };
+
+        var newFood = usersRef.child();
+
+        newFood.update({
+          foodItem: foodItem
+        });
         // Uploads new food item to the database
         database.ref().push(newFood);
 
