@@ -14,8 +14,10 @@ $(document).ready(function(){
   };
   // Variable for the user object in Firebase that the food is pushed into. 
   var userObject = {
-    food: {
+    userid: {
+      food: {
 
+      }
     }
   };
 
@@ -50,6 +52,8 @@ $(document).ready(function(){
         var firebaseUser = database.ref('/users/' + userName);
         firebaseUser.push(userObject);
       };
+
+      console.log("Consoling 'firebaseUser': " + firebaseUser);
       console.log("Consoling 'userObject': " + userObject);
 	// });
 
@@ -81,9 +85,10 @@ $(document).ready(function(){
           foodItem: foodItem
         };
         // Uploads new food item to the database
-        database.ref(userObject.food).push(newFood);
+        database.ref('userid/').push(newFood);
         // Logs the information to the console
-        console.log("Consoling 'newFood.foodItem': " + newFood.foodItem);
+        console.log("Consoling 'userObject': " + userObject);
+
         } 
   	     // Clear the search boxes
   	   $("#foodSearchBox").val("");
