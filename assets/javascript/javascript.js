@@ -39,6 +39,7 @@ $(document).ready(function(){
 
       console.log(profilePicUrl);
       console.log(userName);   
+      console.log(user);
 
       
 
@@ -51,6 +52,8 @@ $(document).ready(function(){
         var firebaseUser = database.ref('/users/' + userName);
         firebaseUser.push(userObject);
       };
+
+      console.log(userObject);
 	// });
 
  //  $("#navbarParent").on("click", "#signOutButton", function(){
