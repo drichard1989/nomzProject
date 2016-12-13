@@ -11,18 +11,22 @@ $(document).ready(function(){
     messagingSenderId: "655959060095"
   };
 
+  var userObject = {
+    food: {
+
+    }
+  };
 
   firebase.initializeApp(config);
 
   var database = firebase.database();
-
-
+  // Creates user directory in Firebase
 
 // This all pertains to logging in to Google with Authentication
 
   var provider = new firebase.auth.GoogleAuthProvider();
 
-  // $("#signInDropdown").on("click", "#googleSignInButton", function(){
+
 
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 	  // This gives you a Google Access Token. You can use it to access the Google API.
@@ -44,6 +48,8 @@ $(document).ready(function(){
         $("#userName").html(userName);
       	$("#signOutButton").show();
       	$("#signInDropdown").hide();
+        var firebaseUser = database.ref('/users/' + userName);
+        firebaseUser.push(userObject);
       };
 	// });
 
@@ -58,13 +64,6 @@ $(document).ready(function(){
  //  });
 
 });
-
-
-
-
-
-		
-
 
   $("#foodSearchButton").on("click", function(){
 
@@ -83,6 +82,8 @@ $(document).ready(function(){
         var newFood = {
           foodItem: foodItem
         };
+
+
 
         // Uploads new food item to the database
         database.ref().push(newFood);
