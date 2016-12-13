@@ -4,6 +4,7 @@ $(document).ready(function(){
   // All Global Variables
 	var profilePicUrl;
 	var userName;
+  var userID ;
   // Variable to Initialize Firebase
   var config = {
     apiKey: "AIzaSyBEsEbAIqr60HleiXsvIcx-lko9l4Bnp6U",
@@ -28,18 +29,21 @@ $(document).ready(function(){
 
 // This all pertains to logging in to Google with Authentication
   var provider = new firebase.auth.GoogleAuthProvider();
+
+
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 	  // This gives you a Google Access Token. You can use it to access the Google API.
 	  var token = result.credential.accessToken;
 	  // The signed-in user info.
 	  var user = result.user;
-
 	  profilePicUrl = user.photoURL; 
       userName = user.displayName;
+      userId = user.uid;
 
       console.log("Profile picture URL: " + profilePicUrl);
       console.log("User Name: " + userName);   
       console.log("Consoling 'user': " + user);
+      console.log("Consoling 'userId': " + userId);
 
       
 
