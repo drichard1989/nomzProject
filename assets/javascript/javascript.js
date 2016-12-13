@@ -89,7 +89,7 @@ $(document).ready(function(){
 
 
         // Uploads new food item to the database
-        database.ref().push(newFood);
+        database.ref(userObject.food).push(newFood);
 
         // Logs the information to the console
         console.log(newFood.foodItem);
