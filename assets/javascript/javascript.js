@@ -35,9 +35,9 @@ $(document).ready(function(){
 	  profilePicUrl = user.photoURL; 
       userName = user.displayName;
 
-      console.log(profilePicUrl);
-      console.log(userName);   
-      console.log(user);
+      console.log("Profile picture URL: " + profilePicUrl);
+      console.log("User Name: " + userName);   
+      console.log("Consoling 'user': " + user);
 
       
 
@@ -50,7 +50,7 @@ $(document).ready(function(){
         var firebaseUser = database.ref('/users/' + userName);
         firebaseUser.push(userObject);
       };
-      console.log(userObject);
+      console.log("Consoling 'userObject': " + userObject);
 	// });
 
  //  $("#navbarParent").on("click", "#signOutButton", function(){
@@ -83,7 +83,7 @@ $(document).ready(function(){
         // Uploads new food item to the database
         database.ref(userObject.food).push(newFood);
         // Logs the information to the console
-        console.log(newFood.foodItem);
+        console.log("Consoling 'newFood.foodItem': " + newFood.foodItem);
         } 
   	     // Clear the search boxes
   	   $("#foodSearchBox").val("");
