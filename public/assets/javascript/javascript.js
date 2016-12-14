@@ -30,6 +30,8 @@ $(document).ready(function(){
   var provider = new firebase.auth.GoogleAuthProvider();
 
 
+
+// This signs in the user when they click on the google sign in button. It also does other things, like shows the sign out button, hides the sign in drop down button, it shows the users image, and display name as well, and also updates a global variable with the current user id so that the food items can be added to their database under their userID
 $("#signInDropdown").on("click", "#googleSignInButton", function(){
 
     firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -59,8 +61,17 @@ $("#signInDropdown").on("click", "#googleSignInButton", function(){
 
         console.log("Consoling 'firebaseUser': " + firebaseUser);
         console.log("Consoling 'userObject': " + userObject);
-
   });
+});
+
+$("#navbarParent").on("click", "#signOutButton", function(){
+
+  firebase.auth().signOut().then(function() {
+  console.log('Signed Out');
+  }, function(error) {
+  console.error('Sign Out Error', error);
+  });
+
 });
 
   // This currently adds the food that is searched for into the database, not in the user section.
