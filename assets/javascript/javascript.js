@@ -40,7 +40,7 @@ $(document).ready(function(){
       console.log("Profile picture URL: " + profilePicUrl);
       console.log("User Name: " + userName);   
       console.log("Consoling 'user': " + user);
-      console.log("Consoling 'userId': " + userId);
+      console.log("Consoling 'userID': " + userID);
 
       
 
