@@ -86,8 +86,10 @@ $(document).ready(function(){
         var newFood = {
           foodItem: foodItem
         };
+
+        var fooddb = database.ref('/users/' + userID + '/food/')
         // Uploads new food item to the userID's object (not working)
-        userdb.push(newFood);
+        fooddb.push(newFood);
         // Logs the information to the console
         console.log("Consoling 'users': " + users);
 
