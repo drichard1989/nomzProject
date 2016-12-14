@@ -23,6 +23,25 @@ a.navbar-brand
     padding-top: 5px;
 }
 
+.panel {
+  background-image: url(../images/nomzListBG.jpg);
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.panel-default {
+  border: 0!important;
+}
+
+.panel-heading {
+  background-color: #5cb85c!important;
+  color: #ffffff!important;
+  border-color: #4cae4c!important;
+}
+
 /*changes modal header color to match color scheme of page, border radius change gives rounded edges*/
 .modal-header {
   background-color: #dddddd;
