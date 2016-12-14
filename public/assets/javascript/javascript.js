@@ -2,8 +2,9 @@ $(document).ready(function(){
 
 
   // All Global Variables
-	var profilePicUrl;
-	var userName;
+  var profilePicUrl;
+  var userName;
+  var user;
   var userdb;
   var userID ;
   // Variable to Initialize Firebase
@@ -19,8 +20,10 @@ $(document).ready(function(){
     
   };
 
-  firebase.initializeApp(config);
 
+  // This initializes Firebase
+  firebase.initializeApp(config);
+  // Creates a variable named firebase for easy reference
   var database = firebase.database();
 
 
@@ -28,48 +31,57 @@ $(document).ready(function(){
   var provider = new firebase.auth.GoogleAuthProvider();
 
 
-	firebase.auth().signInWithPopup(provider).then(function(result) {
-	  // This gives you a Google Access Token. You can use it to access the Google API.
-	  var token = result.credential.accessToken;
-	  // The signed-in user info.
-	  var user = result.user;
-	  profilePicUrl = user.photoURL; 
-      userName = user.displayName;
-      userID = user.uid;
 
-      console.log("Profile picture URL: " + profilePicUrl);
-      console.log("User Name: " + userName);   
-      console.log("Consoling 'user': " + user);
-      console.log("Consoling 'userID': " + userID);
+// This signs in the user when they click on the google sign in button. It also does other things, like shows the sign out button, hides the sign in drop down button, it shows the users image, and display name as well, and also updates a global variable with the current user id so that the food items can be added to their database under their userID
+$("#signInDropdown").on("click", "#googleSignInButton", function(){
 
-      
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      profilePicUrl = user.photoURL; 
+        userName = user.displayName;
+        userID = user.uid;
 
-      if (user) {
-      	$("#userImage").attr("src", profilePicUrl);
-      	$("#userThumbnailImage").show();
-        $("#userName").html(userName);
-      	$("#signOutButton").show();
-      	$("#signInDropdown").hide();
+        console.log("Profile picture URL: " + profilePicUrl);
+        console.log("User Name: " + userName);   
+        console.log("Consoling 'user': " + user);
+        console.log("Consoling 'userID': " + userID);
 
-        database.ref().push(users);
-        userdb =  database.ref('/users/' + userID);
-      };
+        if (user) {
+          $("#userImage").attr("src", profilePicUrl);
+          $("#userThumbnailImage").show();
+          $("#userName").html(userName);
+          $("#signOutButton").show();
+          $("#signInDropdown").hide();
 
-      console.log("Consoling 'firebaseUser': " + firebaseUser);
-      console.log("Consoling 'userObject': " + userObject);
-	// });
+          database.ref().push(users);
+          userdb =  database.ref('/users/' + userID);
+        };
 
- //  $("#navbarParent").on("click", "#signOutButton", function(){
-
- //  	firebase.auth().signOut().then(function() {
- //  	console.log('Signed Out');
-	// }, 
-	// function(error) {
- //  	console.error('Sign Out Error', error);
-	// });
- //  });
+        console.log("Consoling 'firebaseUser': " + firebaseUser);
+        console.log("Consoling 'userObject': " + userObject);
+  });
 });
 
+$("#navbarParent").on("click", "#signOutButton", function(){
+
+  firebase.auth().signOut().then(function() {
+  console.log('Signed Out');
+  }, function(error) {
+  console.error('Sign Out Error', error);
+  });
+
+
+    $("#userImage").attr("src", "");
+    $("#userThumbnailImage").hide();
+    $("#userName").html("");
+    $("#signOutButton").hide();
+    $("#signInDropdown").show();
+  
+
+});
 
   // This currently adds the food that is searched for into the database, not in the user section.
   $("#foodSearchButton").on("click", function(){
@@ -94,10 +106,10 @@ $(document).ready(function(){
         console.log("Consoling 'users': " + users);
 
         } 
-  	     // Clear the search boxes
-  	   $("#foodSearchBox").val("");
+         // Clear the search boxes
+       $("#foodSearchBox").val("");
 
-  	return false;
+    return false;
   }); // closes the foodSearchButton function
 
   // function that triggers the submit button when users hit "enter"

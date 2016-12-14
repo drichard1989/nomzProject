@@ -11,57 +11,59 @@
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <!-- linking bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- This is the link to make my site mobile responsive.  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <!-- <<<<<<< Updated upstream -->
 
-  <!-- main title -->
-  <div class="container title">
+  <!-- main container -->
+<div class="container title">
 
 
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-     <a class="navbar-brand" href="#"><img src="assets/images/nomzIcon.png" height="35" width="25" alt=""></a>
-    </div>
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+       <a class="navbar-brand" href="#"><img src="assets/images/nomzIcon.png" height="35" width="25" alt=""></a>
+      </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        
-    <ul class="nav navbar-nav navbar-right" id="navbarParent">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- These are the items that will be pushed to the right on the navbar -->
+      <ul class="nav navbar-nav navbar-right" id="navbarParent">
 
-    
-        <a class="navbar-brand" href="#" style="display: none;" id="userThumbnailImage">
-          <img class="img-responsive" alt="Brand" id="userImage" src="#">
-        </a>
-
-
-      <li ><a href="#" id="userName"></a></li>
-      
-      <li style="display: none;" id="signOutButton"><a href="#">sign out</a></li>
-      
-      <li class="dropdown" id="signInDropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#" id="googleSignInButton">Google</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-                  </ul>
-            </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+          <!-- User Image from Google Account -->
+          <a class="navbar-brand" href="#" style="display: none;" id="userThumbnailImage">
+            <img class="img-responsive img-rounded" alt="Brand" id="userImage" src="#">
+          </a>
+        <!-- Username -->
+        <li ><a href="#" id="userName"></a></li>
+        <!-- Sign out button -->
+        <li style="display: none;" id="signOutButton"><a href="#">sign out</a></li>
+        <!-- Sign In Dropdown Menu -->
+        <li class="dropdown" id="signInDropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign In <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" id="googleSignInButton">Google</a></li>
+                  <li><a href="#">Facebook</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                    </ul>
+              </li>
+        </ul><!-- Closes Navbar Right items -->
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
 
 
@@ -141,11 +143,20 @@
 					</tr>
 				</table>
 			</div>
+<<<<<<< HEAD
 			</div>
 			<div class="col-lg-2"></div>
 		</div>
     </div>
   <!-- Closes the container that holds the lists -->
+=======
+				
+		</div>
+		<div class="col-lg-2"></div>
+	</div>
+</div> <!--Closes the document container-->
+
+>>>>>>> 0f7b57ee18ca3b53ad9c05b0dc1efe18efbde17b
 
   
   <footer class="footer text-center navbar-fixed-bottom">
