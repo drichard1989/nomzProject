@@ -35,7 +35,7 @@ $(document).ready(function(){
 	  var user = result.user;
 	  profilePicUrl = user.photoURL; 
       userName = user.displayName;
-      userId = user.uid;
+      userID = user.uid;
 
       console.log("Profile picture URL: " + profilePicUrl);
       console.log("User Name: " + userName);   
