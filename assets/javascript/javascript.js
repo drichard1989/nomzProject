@@ -85,8 +85,8 @@ $(document).ready(function(){
         var newFood = {
           foodItem: foodItem
         };
-        // Uploads new food item to the database
-        database.ref(userID).push(newFood);
+        // Uploads new food item to the userID's object (not working)
+        database.ref('/users/'+ userID).push(newFood);
         // Logs the information to the console
         console.log("Consoling 'users': " + users);
 
