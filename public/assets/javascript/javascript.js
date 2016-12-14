@@ -72,6 +72,14 @@ $("#navbarParent").on("click", "#signOutButton", function(){
   console.error('Sign Out Error', error);
   });
 
+  if(!user) {
+    $("#userImage").attr("src", "");
+    $("#userThumbnailImage").hide();
+    $("#userName").html("");
+    $("#signOutButton").hide();
+    $("#signInDropdown").show();
+  }
+
 });
 
   // This currently adds the food that is searched for into the database, not in the user section.
