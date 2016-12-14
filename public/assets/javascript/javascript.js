@@ -72,13 +72,13 @@ $("#navbarParent").on("click", "#signOutButton", function(){
   console.error('Sign Out Error', error);
   });
 
-  if(!user) {
+
     $("#userImage").attr("src", "");
     $("#userThumbnailImage").hide();
     $("#userName").html("");
     $("#signOutButton").hide();
     $("#signInDropdown").show();
-  }
+  
 
 });
 
