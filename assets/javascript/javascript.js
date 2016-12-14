@@ -4,6 +4,7 @@ $(document).ready(function(){
   // All Global Variables
 	var profilePicUrl;
 	var userName;
+  var userdb;
   var userID ;
   // Variable to Initialize Firebase
   var config = {
@@ -51,7 +52,7 @@ $(document).ready(function(){
       	$("#signInDropdown").hide();
 
         database.ref().push(users);
-        database.ref('/users/').push(userId);
+        userdb =  database.ref('/users/' + userID);
       };
 
       console.log("Consoling 'firebaseUser': " + firebaseUser);
@@ -86,7 +87,7 @@ $(document).ready(function(){
           foodItem: foodItem
         };
         // Uploads new food item to the userID's object (not working)
-        database.ref('/users/'+ userID).push(newFood);
+        userdb.push(newFood);
         // Logs the information to the console
         console.log("Consoling 'users': " + users);
 
