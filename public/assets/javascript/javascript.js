@@ -4,7 +4,7 @@ $(document).ready(function(){
   // All Global Variables
   var profilePicUrl;
   var userName;
-  var user = result.user;
+  var user;
   var userdb;
   var userID ;
   // Variable to Initialize Firebase
@@ -39,7 +39,7 @@ $("#signInDropdown").on("click", "#googleSignInButton", function(){
       // This gives you a Google Access Token. You can use it to access the Google API.
       var token = result.credential.accessToken;
       // The signed-in user info.
-      
+      var user = result.user;
       profilePicUrl = user.photoURL; 
         userName = user.displayName;
         userID = user.uid;
