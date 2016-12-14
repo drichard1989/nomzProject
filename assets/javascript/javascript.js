@@ -50,7 +50,7 @@ $(document).ready(function(){
       	$("#signOutButton").show();
       	$("#signInDropdown").hide();
 
-        firebaseUser.push(users);
+        database.ref().push(users);
         database.ref('/users/').push(userId);
       };
 
@@ -86,7 +86,7 @@ $(document).ready(function(){
           foodItem: foodItem
         };
         // Uploads new food item to the database
-        database.ref('userid/').push(newFood);
+        database.ref('/userid/').push(newFood);
         // Logs the information to the console
         console.log("Consoling 'users': " + users);
 
