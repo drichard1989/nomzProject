@@ -93,7 +93,7 @@ $('#foodSearchButton').on('click', function() {
 			// remove item
 			var removeItem = $('<td>');
 			var removeButton = $('<button class="btn btn-danger removeItem">');
-			removeButton.text("Remove");
+			removeButton.text("remove");
 			removeItem.append(removeButton);
 			itemRow.append(removeItem);
 
