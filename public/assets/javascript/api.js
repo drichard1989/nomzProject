@@ -23,7 +23,12 @@ $('#foodSearchButton').on('click', function() {
 			// fat
 			// var itemFat = $('<li class="itemFat">');
 			var itemFat = $('<td class="itemFat">');
-			itemFat.text((Math.round(responseJSON.totalNutrients.FAT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.FAT.unit);
+			if (responseJSON.totalNutrients.FAT) {
+				itemFat.text((Math.round(responseJSON.totalNutrients.FAT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.FAT.unit);
+			}
+			else {
+				itemFat.text("0 g");
+			}
 			// itemNutrients.append(itemFat);
 			itemRow.append(itemFat);
 
@@ -31,12 +36,22 @@ $('#foodSearchButton').on('click', function() {
 			// var itemCal = $('<li class="itemCal">');
 			// itemCal.text("Calories: " + responseJSON.calories);
 			var itemCal = $('<td class="itemCal">');
-			itemCal.text(responseJSON.calories);
+			if (responseJSON.calories) {
+				itemCal.text(responseJSON.calories);
+			}
+			else {
+				itemCal.text("0");
+			}
 			itemRow.append(itemCal);
 
 			// sugar
 			var itemSugar = $('<td class="itemSugar">');
-			itemSugar.text((Math.round(responseJSON.totalNutrients.SUGAR.quantity * 100) / 100) + " " + responseJSON.totalNutrients.SUGAR.unit);
+			if (responseJSON.totalNutrients.SUGAR) {
+				itemSugar.text((Math.round(responseJSON.totalNutrients.SUGAR.quantity * 100) / 100) + " " + responseJSON.totalNutrients.SUGAR.unit);
+			}
+			else {
+				itemSugar.text("0 g");
+			}
 			itemRow.append(itemSugar);
 
 			// sodium
@@ -44,7 +59,12 @@ $('#foodSearchButton').on('click', function() {
 			// itemNA.text(responseJSON.totalNutrients.NA.label + ": " + (Math.round(responseJSON.totalNutrients.NA.quantity * 100) / 100) + " " + responseJSON.totalNutrients.NA.unit);
 			// itemNutrients.append(itemNA);
 			var itemNA = $('<td class="itemNA">');
-			itemNA.text((Math.round(responseJSON.totalNutrients.NA.quantity * 100) / 100) + " " + responseJSON.totalNutrients.NA.unit);
+			if (responseJSON.totalNutrients.NA) {
+				itemNA.text((Math.round(responseJSON.totalNutrients.NA.quantity * 100) / 100) + " " + responseJSON.totalNutrients.NA.unit);
+			}
+			else {
+				itemNA.text("0 g");
+			}
 			itemRow.append(itemNA);
 
 			// protein
@@ -52,12 +72,22 @@ $('#foodSearchButton').on('click', function() {
 			// itemProt.text(responseJSON.totalNutrients.PROCNT.label + ": " + (Math.round(responseJSON.totalNutrients.PROCNT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.PROCNT.unit);
 			// itemNutrients.append(itemProt);
 			var itemProt = $('<td class="itemProt">');
-			itemProt.text((Math.round(responseJSON.totalNutrients.PROCNT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.PROCNT.unit);
+			if (responseJSON.totalNutrients.PROCNT) {
+				itemProt.text((Math.round(responseJSON.totalNutrients.PROCNT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.PROCNT.unit);
+			}
+			else {
+				itemProt.text("0 g");
+			}
 			itemRow.append(itemProt);
 
 			// carbs
 			var itemCarbs = $('<td class="itemCarbs">');
-			itemCarbs.text((Math.round(responseJSON.totalNutrients.CHOCDF.quantity * 100) / 100) + " " + responseJSON.totalNutrients.CHOCDF.unit);
+			if (responseJSON.totalNutrients.CHOCDF) {
+				itemCarbs.text((Math.round(responseJSON.totalNutrients.CHOCDF.quantity * 100) / 100) + " " + responseJSON.totalNutrients.CHOCDF.unit);
+			}
+			else {
+				itemCarbs.text("0 g");
+			}
 			itemRow.append(itemCarbs);
 
 			// remove item
