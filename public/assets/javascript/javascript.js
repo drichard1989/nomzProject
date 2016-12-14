@@ -78,13 +78,7 @@ $("#navbarParent").on("click", "#signOutButton", function(){
     $("#signOutButton").hide();
     $("#signInDropdown").show();
 
-    if (authData) {
-        console.log("User " + authData.uid + " is logged in with " + authData.provider);
-    } 
-
-    else {
-        console.log("User is logged out");
-  };
+  
 
 });
 
