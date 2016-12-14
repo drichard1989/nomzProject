@@ -30,8 +30,6 @@ $(document).ready(function(){
 // This all pertains to logging in to Google with Authentication
   var provider = new firebase.auth.GoogleAuthProvider();
 
-
-
 // This signs in the user when they click on the google sign in button. It also does other things, like shows the sign out button, hides the sign in drop down button, it shows the users image, and display name as well, and also updates a global variable with the current user id so that the food items can be added to their database under their userID
 $("#signInDropdown").on("click", "#googleSignInButton", function(){
 
@@ -79,6 +77,7 @@ $("#navbarParent").on("click", "#signOutButton", function(){
     $("#userName").html("");
     $("#signOutButton").hide();
     $("#signInDropdown").show();
+
   
 
 });
