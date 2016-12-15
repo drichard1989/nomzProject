@@ -189,7 +189,7 @@ $('#foodSearchButton').on('click', function() {
 					itemSugar: itemSugar.text(),
 					itemProt: itemProt.text()
 				};
-				var fooddb = database.ref('/users/' userID + '/food/');
+				var fooddb = database.ref('/users/' + userID + '/food/');
 				fooddb.push(newFood);
 	        }) // end of .done
 		 	.fail(function(error){
