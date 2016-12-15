@@ -1,3 +1,7 @@
+html {
+    font-family: 'Comfortaa', cursive;
+}
+
 body{ 
   background: url(../images/nomzBG.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -58,13 +62,13 @@ th {
 
 td {
     text-align: center!important;
-    padding-top: 16px!important;
 }
 
 /*changes modal header color to match color scheme of page, border radius change gives rounded edges*/
 .modal-header {
-  background-color: #dddddd;
-  border-radius: 6px 6px 0px 0px;
+  background-color: #222222;
+  color: #ffffff;
+  border-radius: 4px 4px 0px 0px;
 }
 
 /*allows me to vertically align the modal to my preferences*/
