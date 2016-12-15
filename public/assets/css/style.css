@@ -1,0 +1,138 @@
+html {
+    font-family: 'Comfortaa', cursive;
+}
+
+body{ 
+  background: url(../images/nomzBG.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+div.col-lg-8 {
+  padding-bottom: 30px;
+}
+
+footer {
+  color: #ffffff;
+}
+#userImage {
+  width: 40px;
+  height: auto;
+
+}
+.title {
+  margin-top: 10%;
+}
+
+a.navbar-brand 
+{
+    padding-top: 5px;
+}
+
+.panel {
+  background-image: url(../images/nomzListBG.jpg);
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.panel-default {
+  border: 0!important;
+}
+
+.panel-heading {
+  background-color: #5cb85c!important;
+  color: #ffffff!important;
+  border-color: #4cae4c!important;
+}
+
+img.img-responsive.center-block {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+th {
+    text-align: center!important;
+    font-weight: bold!important;
+}
+
+td {
+    text-align: center!important;
+}
+
+/*changes modal header color to match color scheme of page, border radius change gives rounded edges*/
+.modal-header {
+  background-color: #222222;
+  color: #ffffff;
+  border-radius: 4px 4px 0px 0px;
+}
+
+/*allows me to vertically align the modal to my preferences*/
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 90%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/*navbar*/
+nav.navbar.navbar-default.navbar-inverse {
+  border-radius: 0px;
+}
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px    
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0    
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc 
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}

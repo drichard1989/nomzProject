@@ -1,10 +1,11 @@
 {
-  "name": "serverexample",
+  "name": "nomz",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "serverexample.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node serverexample.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/drichard1989/nomzProject#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "request": "^2.79.0"
   }
 }
