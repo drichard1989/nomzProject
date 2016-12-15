@@ -1,6 +1,6 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
 
-
+  // ** copied this section to api.js
   // All Global Variables
   var profilePicUrl;
   var userName;
@@ -25,7 +25,7 @@ $(document).ready(function(){
   firebase.initializeApp(config);
   // Creates a variable named firebase for easy reference
   var database = firebase.database();
-
+  // **
 
 // This all pertains to logging in to Google with Authentication
   var provider = new firebase.auth.GoogleAuthProvider();
@@ -82,12 +82,13 @@ $("#navbarParent").on("click", "#signOutButton", function(){
 
 });
 
+//commented this out b/c I copied it to api.js
   // This currently adds the food that is searched for into the database, not in the user section.
   $("#foodSearchButton").on("click", function(){
     // This asks them to enter something if the section is blank when they submit.
     if ($('#foodSearchBox').val().trim() === ""){
       $('#addFoodItemModal').modal();
-        } 
+        }
         // This enters the data into firebase after trimming it.
         else {
           console.log("food button working")
@@ -120,4 +121,4 @@ $("#navbarParent").on("click", "#signOutButton", function(){
   
 
 
-}); // closes document.ready
+}); // closes document.ready*/
