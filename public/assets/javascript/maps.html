@@ -17,6 +17,11 @@
         margin: 0;
         padding: 0;
       }
+	
+	  #map marker.icon {
+	  	height: 10px;
+	  	width: auto;
+	  }
     </style>
   </head>
   <body>
@@ -24,7 +29,7 @@
     <script> 
 
     var startPos;
-
+   
     // This function get's the user's location
  	var geoSuccess = function(position) {
  		startPos = position;
@@ -49,11 +54,15 @@
         }); // Closes new google.maps function
 
         // This object creates a marker on the map at the user's location
+        // This calls google's library
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+
         var marker = new google.maps.Marker({
         	draggable: false,
-        	fillColor: "green",
           	animation: google.maps.Animation.DROP,
         	position: uluru,
+        	icon: '../images/greenDot.png',
+        	// icon: iconBase + 'parking_lot_maps.png',
         	map: map
         }); // Closes the marker object
        // Calls the in google function to give markers info windows
@@ -85,6 +94,8 @@
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
+          icon: "../images/nomzMapIcon.png",
+          animation: google.maps.Animation.DROP,
           position: place.geometry.location
         }); // closes the marker function
 
