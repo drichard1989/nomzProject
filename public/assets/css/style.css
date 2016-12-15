@@ -6,6 +6,10 @@ body{
   background-size: cover;
 }
 
+div.col-lg-8 {
+  padding-bottom: 30px;
+}
+
 footer {
   color: #ffffff;
 }
