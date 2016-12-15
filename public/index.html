@@ -16,214 +16,136 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<!-- <<<<<<< Updated upstream -->
-
   <!-- main container -->
-<div class="container title">
+  <div class="container title">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         <a class="navbar-brand" href="#"><img src="assets/images/nomzIcon.png" height="35" width="25" alt=""></a>
+        </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <!-- These are the items that will be pushed to the right on the navbar -->
+        <ul class="nav navbar-nav navbar-right" id="navbarParent">
 
-  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-       <a class="navbar-brand" href="#"><img src="assets/images/nomzIcon.png" height="35" width="25" alt=""></a>
-      </div>
+            <!-- User Image from Google Account -->
+            <a class="navbar-brand" href="#" style="display: none;" id="userThumbnailImage">
+              <img class="img-responsive img-rounded" alt="Brand" id="userImage" src="#">
+            </a>
+          <!-- Username -->
+          <li ><a href="#" id="userName"></a></li>
+          <!-- Sign out button -->
+          <li style="display: none;" id="signOutButton"><a href="#">sign out</a></li>
+          <!-- Sign In Dropdown Menu -->
+          <li class="dropdown" id="signInDropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">sign in <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" id="googleSignInButton">Google</a></li>
+                  </ul>
+                </li>
+          </ul><!-- Closes Navbar Right items -->
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <!-- These are the items that will be pushed to the right on the navbar -->
-      <ul class="nav navbar-nav navbar-right" id="navbarParent">
-
-          <!-- User Image from Google Account -->
-          <a class="navbar-brand" href="#" style="display: none;" id="userThumbnailImage">
-            <img class="img-responsive img-rounded" alt="Brand" id="userImage" src="#">
-          </a>
-        <!-- Username -->
-        <li ><a href="#" id="userName"></a></li>
-        <!-- Sign out button -->
-        <li style="display: none;" id="signOutButton"><a href="#">sign out</a></li>
-        <!-- Sign In Dropdown Menu -->
-        <li class="dropdown" id="signInDropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">sign in <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#" id="googleSignInButton">Google</a></li>
-                </ul>
-              </li>
-        </ul><!-- Closes Navbar Right items -->
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-
-
-
-
-  <!-- jumbotron -->
-  <div class="container">
-
-    <br>
-        <img class="img-responsive center-block" src="assets/images/logo1.png" height="300" width="500">
-        <br>
-        <div class="row">
-          <div class="col-lg-2"></div>
-          <div class="col-lg-8">
-            <!-- input form -->
-            <div class="input-group">
-                <input type="text" id="foodSearchBox" class="form-control" placeholder="2 pineapples">
-                  <!-- submit button -->
-                  <span class="input-group-btn">
-                    <button id="foodSearchButton" class="btn btn-success" type="button">add</button>
-                  </span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-8 -->
+    <!-- jumbotron -->
+    <div class="container">
+      <br>
+      <img class="img-responsive center-block" src="assets/images/logo1.png" height="300" width="500">
+      <br>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <!-- input form -->
+          <div class="input-group">
+              <input type="text" id="foodSearchBox" class="form-control" placeholder="2 pineapples">
+                <!-- submit button -->
+                <span class="input-group-btn">
+                  <button id="foodSearchButton" class="btn btn-success" type="button">add</button>
+                </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-8 -->
         <div class="col-lg-2"></div>
       </div><!-- /.row -->
-  </div>
-  <!-- end main title -->
+    </div> <!-- end of .container-->
+  </div> <!-- end main title -->
   <!-- main content -->
   <!-- end main content -->
   <!-- modal -->
   <!-- modal -->
   <div class="container">
-      <!-- time up modal -->
-      <div class="modal fade" id="addFoodItemModal" role="dialog">
-        <div class="modal-dialog modal-sm" align="center">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h4 class="modal-title">error</h4>
-              </div>
-              <div class="modal-body">
-                  <p>please add an item</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">close</button>
-              </div>
+    <!-- time up modal -->
+    <div class="modal fade" id="addFoodItemModal" role="dialog">
+      <div class="modal-dialog modal-sm" align="center">
+          <div class="modal-content">
+             <div class="modal-header">
+                <h4 class="modal-title">error</h4>
             </div>
-        </div>
-      </div>
-  </div>
-  <!-- end modal -->
-  <!-- end modal -->
-  <!-- footer -->
-  
-  <!-- Empty div for appending the items -->
-  <br>
-  <br>
-  <div class="container">
-		<!-- <div class="row" id="list-container"> -->
-		<div class="row">
-			<!-- <div class="col-lg-2"></div> -->
-			<!-- <div class="col-lg-8" id="list-container"> -->
-  			<div class="col-lg-8">
-          <div class="panel panel-default" style="display: none;">
-            <img class="img-responsive center-block" src="assets/images/nomzList.png"  width="250">
-            <!-- <div class="table-responsive">
-                    <table class="table" style="display: none;"> -->
-            <div class="panel panel-default" style="display: none;" align="center">
-              <div class="table-responsive">
-
-        				<table class="table">
-        					<tr>
-        						<th>item</th>
-        						<th>fat</th>
-        						<th>calories</th>
-        						<th>sugar</th>
-        						<th>sodium</th>
-        						<th>protein</th>
-        						<th>carbs</th>
-        						<th></th>
-        					</tr>
-        				</table>
-              </div>
-      			</div>
-    			</div>
-
-
-        
-          <div class="col-lg-4">
-            <div class="panel panel-default" style="display: none;">
-              <img class="img-responsive center-block" src="assets/images/nomzStorez.png"  width="190" style="padding-top: 22px; padding-bottom: 27px">
+            <div class="modal-body">
+                <p>please add an item</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">close</button>
             </div>
           </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
 
+  <div class="section"><!-- Empty div for appending the items -->
+    <br>
+    <br>
+    <div class="container">
+  		<!-- <div class="row" id="list-container"> -->
+  		<div class="row">
+    			<div class="col-lg-8">
+            <div class="panel panel-default" id="firstPanel" style="display: none;">
+              <img class="img-responsive center-block" src="assets/images/nomzList.png"  width="250">
+              <div class="panel panel-default" style="display: none;" align="center">
+                <div class="table-responsive">
 
-  			<!-- <div class="col-lg-2"></div> -->
-  		</div> <!-- end of .col-lg-8 -->
-    </div> <!-- end of .row -->
-  </div> <!-- end of .container -->
-  <!-- Closes the container that holds the lists -->
+          				<table class="table">
+          					<tr>
+          						<th>item</th>
+          						<th>fat</th>
+          						<th>calories</th>
+          						<th>sugar</th>
+          						<th>sodium</th>
+          						<th>protein</th>
+          						<th>carbs</th>
+          						<th></th>
+          					</tr>
+          				</table>
+                </div>
+        			</div>
+      			</div> <!-- end of first panel -->
+            <div class="col-lg-4">
+              <div class="panel panel-default" style="display: none;">
+                <img class="img-responsive center-block" src="assets/images/nomzStorez.png"  width="190" style="padding-top: 22px; padding-bottom: 27px">
+              </div>
+            </div>
+    		</div> <!-- end of .col-lg-8 -->
+      </div> <!-- end of .row -->
+    </div> <!-- end of .container -->
+  </div> <!-- end of container that holds the table -->
   
   <footer class="footer text-center navbar-fixed-bottom">
+    <div class="container">
+      <p>&copy; 2016 paid productions</p>
+    </div>
+  </footer>
 
-<!-- =======
-	jumbotron
-	<div class="container">
-		<br>
- 		<div class="jumbotron">
-    		<img class="img-responsive center-block" src="assets/images/logo.png" height="300" width="500">
-    		<br>
-  			<div class="row">
-  				<div class="col-lg-2"></div>
-  				<div class="col-lg-8">
-    				input form
-    				<div class="input-group">
-      					<input type="text" id="foodSearchBox" class="form-control" placeholder="pineapple">
-      						submit button
-      						<span class="input-group-btn">
-        						<button id="foodSearchButton" class="btn btn-success" type="button">add</button>
-      						</span>
-    				</div>/input-group
-  				</div>/.col-lg-8
-				<div class="col-lg-2"></div>
-			</div>/.row
-  		</div>
-	</div>
-	end jumbotron
-	
-	main content
-	end main content
-	modal
-	modal
-	<div class="container">
-  		time up modal
-  		<div class="modal fade" id="addFoodItemModal" role="dialog">
-    		<div class="modal-dialog modal-sm" align="center">
-      			<div class="modal-content">
-       				 <div class="modal-header">
-          				<h4 class="modal-title">error</h4>
-        			</div>
-        			<div class="modal-body">
-          				<p>please add an item</p>
-        			</div>
-        			<div class="modal-footer">
-          			<button type="button" class="btn btn-success" data-dismiss="modal">close</button>
-        			</div>
-      			</div>
-    		</div>
-  		</div>
-	</div>
-	end modal
-	end modal
-	footer
-	
-	Empty div for appending the items
-	 
-	Closes the container that holds the lists
-	
-	<footer class="footer text-center">
->>>>>>> Stashed changes -->
-      <div class="container">
-        <p>&copy; 2016 paid productions</p>
-      </div>
-    </footer>
-    <!-- linking jQuery library -->
+
+  <!-- linking jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <!-- linking bootstrap JS -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
