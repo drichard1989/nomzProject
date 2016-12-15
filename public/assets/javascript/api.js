@@ -1,9 +1,8 @@
 
 $('#foodSearchButton').on('click', function() {
 	var foodItem = $('#foodSearchBox').val();
-	if ($('.table').children().length === 1) {
+	if ($('tbody').children().length === 1) {
 		$('.panel').show();
-		// $('')
 	}
 	 $.ajax({url:"/api/nutrition/" + foodItem, method:"get"}).done(function(response){
             var responseJSON = $.parseJSON(response);
@@ -120,15 +119,7 @@ $('#foodSearchButton').on('click', function() {
 
 $(document).on('click', '.removeItem', function() {
 	$(this).parent().parent().remove();
-<<<<<<< HEAD
-	console.log($('tbody').children().length);
-	console.log($('tbody').children().length === 1);
-	/*if ($('.table').children().length === 1) {
-=======
-	/*console.log($('tbody').children().length);
-	console.log($('tbody').children().length === 1);*/
 	if ($('tbody').children().length === 1) {
->>>>>>> d485891a6124a353aa03e61f932e800b5a1256d7
 		$('.panel').hide();
 	}
 });
