@@ -8,7 +8,7 @@ var user;
 var userdb;
 var userID ;
 var newFood;
-// var fooddb;
+var fooddb;
 
 // Variable to Initialize Firebase
 var config = {
@@ -83,9 +83,9 @@ $("#navbarParent").on("click", "#signOutButton", function(){
 
   // function that triggers the submit button when users hit "enter"
 $("#foodSearchBox").keyup(function(event){
-if(event.keyCode == 13){
-  $("#foodSearchButton").click();
-}
+	if(event.keyCode == 13){
+	  $("#foodSearchButton").click();
+	}
 }); // end function that triggers the submit button when pressing "enter"
 
 $('#foodSearchButton').on('click', function() {
@@ -189,7 +189,7 @@ $('#foodSearchButton').on('click', function() {
 					itemSugar: itemSugar.text(),
 					itemProt: itemProt.text()
 				};
-				var fooddb = database.ref('/users/' + userID + '/food/');
+				fooddb = database.ref('/users/' + userID + '/food/');
 				fooddb.push(newFood);
 	        }) // end of .done
 		 	.fail(function(error){
