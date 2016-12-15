@@ -2,7 +2,8 @@
 $('#foodSearchButton').on('click', function() {
 	var foodItem = $('#foodSearchBox').val();
 	if ($('.table').children().length === 1) {
-		$('.table').show();
+		$('.panel').show();
+		// $('')
 	}
 	 $.ajax({url:"/api/nutrition/" + foodItem, method:"get"}).done(function(response){
             var responseJSON = $.parseJSON(response);
@@ -120,6 +121,6 @@ $('#foodSearchButton').on('click', function() {
 $(document).on('click', '.removeItem', function() {
 	$(this).parent().parent().remove();
 	if ($('.table').children().length === 1) {
-		$('.table').hide();
+		$('.panel').hide();
 	}
 });
