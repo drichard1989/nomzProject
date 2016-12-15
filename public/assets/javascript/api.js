@@ -120,7 +120,8 @@ $('#foodSearchButton').on('click', function() {
 
 $(document).on('click', '.removeItem', function() {
 	$(this).parent().parent().remove();
-	if ($('.table').children().length === 1) {
+	console.log($('.table').children().length);
+	/*if ($('.table').children().length === 1) {
 		$('.panel').hide();
-	}
+	}*/
 });
