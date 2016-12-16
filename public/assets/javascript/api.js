@@ -154,8 +154,10 @@ $(document).ready(function() {
 				itemRow.append(removeItem);
 
 				// append item name and nutrients list to container
-				$('.table').append(itemRow);
+				// $('.table').append(itemRow);
+
 				if ($('tbody').children().length > 1) {
+					$('.itemRow').prepend(itemRow);
 					$('.panel').show();
 					if (!userMap) {
 						navigator.geolocation.getCurrentPosition(geoSuccess);
@@ -163,7 +165,7 @@ $(document).ready(function() {
 					}
 				}
 				else {
-					$('.panel').hide();
+					$('.table').append(itemRow);
 				}
 			});
 	  });
