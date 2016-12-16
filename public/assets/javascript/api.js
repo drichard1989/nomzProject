@@ -205,6 +205,7 @@ $(document).ready(function() {
 
 	    // Calls the geoSuccess function
 		navigator.geolocation.getCurrentPosition(geoSuccess);
+		console.log("run");
 	    return false;
 	});
 
