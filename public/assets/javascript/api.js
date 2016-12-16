@@ -73,7 +73,8 @@ $(document).ready(function() {
 				// create table data for the item name and append it to the row
 				var itemName = $('<td class="itemName">');
 				// itemName.text(foodItem);
-				itemName.text(item.foodItem);
+				console.log(snapshot.val().foodItem);
+				itemName.text(snapshot.val().foodItem);
 				itemRow.append(itemName);
 
 				// fat
@@ -84,7 +85,8 @@ $(document).ready(function() {
 				else {
 					itemFat.text("0 g");
 				}*/
-				itemFat.text(item.itemFat);
+				console.log(snapshot.val().itemFat);
+				itemFat.text(snapshot.val().itemFat);
 				itemRow.append(itemFat);
 
 				// calories
@@ -95,7 +97,8 @@ $(document).ready(function() {
 				else {
 					itemCal.text("0");
 				}*/
-				itemCal.text(item.itemCal);
+				console.log(snapshot.val().itemCal);
+				itemCal.text(snapshot.val().itemCal);
 				itemRow.append(itemCal);
 
 				// sugar
@@ -106,7 +109,8 @@ $(document).ready(function() {
 				else {
 					itemSugar.text("0 g");
 				}*/
-				itemSugar.text(item.itemSugar);
+				console.log(snapshot.val().itemSugar);
+				itemSugar.text(snapshot.val().itemSugar);
 				itemRow.append(itemSugar);
 
 				// sodium
@@ -117,7 +121,8 @@ $(document).ready(function() {
 				else {
 					itemNA.text("0 g");
 				}*/
-				itemNA.text(item.itemNA);
+				console.log(snapshot.val().itemNA);
+				itemNA.text(snapshot.val().itemNA);
 				itemRow.append(itemNA);
 
 				// protein
@@ -128,7 +133,7 @@ $(document).ready(function() {
 				else {
 					itemProt.text("0 g");
 				}*/
-				itemProt.text(item.itemProt);
+				itemProt.text(snapshot.val().itemProt);
 				itemRow.append(itemProt);
 
 				// carbs
@@ -139,7 +144,7 @@ $(document).ready(function() {
 				else {
 					itemCarbs.text("0 g");
 				}*/
-				itemCarbs.text(item.itemCarbs);
+				itemCarbs.text(snapshot.val().itemCarbs);
 				itemRow.append(itemCarbs);
 
 				// remove item
