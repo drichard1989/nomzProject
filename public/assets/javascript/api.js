@@ -235,6 +235,7 @@ var geoSuccess = function(position) {
 
  		// Upon success this runes the initMap function
  		initMap();
+ 		console.log("run");
 	}; // closes geoSuccess function
 
 var map;
@@ -248,6 +249,7 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: uluru,
       zoom: 12
+      console.log("run");
     }); // Closes new google.maps function
 
     // This object creates a marker on the map at the user's location
@@ -284,6 +286,7 @@ function callback(results, status) {
       		createMarker(results[i]);
     	}; // closes the for statement
     }; // closes the if statement
+    console.log("run");
 }; // CLoses the callback function
 
 // This creates a marker for search terms
@@ -301,4 +304,5 @@ function createMarker(place) {
       infowindow.setContent(place.name);
       infowindow.open(map, this);
     }); // closes the event listener
-  } // closes the createMarker function
+    console.log("run");
+} // closes the createMarker function
