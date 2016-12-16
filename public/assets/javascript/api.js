@@ -8,6 +8,7 @@ $(document).ready(function() {
 	var fooddb;
 	var archive;
 	var item;
+	var signedIn = false;
 
 	// Variable to Initialize Firebase
 	var config = {
@@ -41,6 +42,9 @@ $(document).ready(function() {
 			profilePicUrl = user.photoURL; 
 		    userName = user.displayName;
 		    userID = user.uid;
+
+		    // set signedIn to true
+		    signedIn = true;
 
 	        console.log("Profile picture URL: " + profilePicUrl);
 	        console.log("User Name: " + userName);   
@@ -76,6 +80,7 @@ $(document).ready(function() {
 	    $("#userName").html("");
 	    $("#signOutButton").hide();
 	    $("#signInDropdown").show();
+	    // reset global vars
 	    profilePicUrl = "";
 		userName = "";
 		user = "";
@@ -84,8 +89,10 @@ $(document).ready(function() {
 		newFood = "";
 		fooddb = "";
 		archive = "";
+		signedIn = false;
 	});
 
+if (signedIn) {
 	  // function that triggers the submit button when users hit "enter"
 	$("#foodSearchBox").keyup(function(event){
 		if(event.keyCode == 13){
@@ -208,7 +215,7 @@ $(document).ready(function() {
 		console.log("run");
 	    return false;
 	});
-
+}
 	if (user) {
 		database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
 			// item = snapshot.val().name();
