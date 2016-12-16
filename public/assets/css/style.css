@@ -139,7 +139,7 @@ nav.navbar.navbar-default.navbar-inverse {
 #map {
         height: 300px!important;
         width: 80%!important;
-      }
+    }
 #mapPanel {
 	height: 444px;
 }
@@ -151,16 +151,6 @@ nav.navbar.navbar-default.navbar-inverse {
         height: 300px!important;
         width: 80%!important;
         margin-bottom: 36px;
-      }
-    #mapPanel
-}
+    }
 
-/*Media queries for screen size of 768px */
-
-@media screen and (max-width: 768px) {
-)
-
-/*For media queries for screens of 640px*/
-
-@media screen and (max-width: 640px) {
 }
