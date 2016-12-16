@@ -10,6 +10,7 @@ $(document).ready(function() {
 	var item;
 	var signedIn = false;
 	var itemKey;
+	var userMap = false;
 
 	// Variable to Initialize Firebase
 	var config = {
@@ -159,6 +160,10 @@ $(document).ready(function() {
 				$('.table').append(itemRow);
 				if ($('tbody').children().length > 1) {
 					$('.panel').show();
+					if (!userMap) {
+						navigator.geolocation.getCurrentPosition(geoSuccess);
+						userMap = true;
+					}
 				}
 				else {
 					$('.panel').hide();
@@ -191,6 +196,7 @@ $(document).ready(function() {
 		fooddb = "";
 		archive = "";
 		signedIn = false;
+		userMap = false;
 		$('tr.itemRow').each(function() {
 			$(this).remove();
 		});
@@ -218,26 +224,11 @@ $(document).ready(function() {
 			 $.ajax({url:"/api/nutrition/" + foodItem, method:"get"})
 			 	.done(function(response){
 		            var responseJSON = $.parseJSON(response);
-		            
-		            // create a row for the item
-		            // moved code that appends to the table to sign in event listener
-					// var itemRow = $('<tr class="itemRow">');
 
 					// create table data for the item name and append it to the row
-					/*var itemName = $('<td class="itemName">');
-					itemName.text(foodItem);
-					itemRow.append(itemName);*/
 					var itemName = foodItem;
 
 					// fat
-					/*var itemFat = $('<td class="itemFat">');
-					if (responseJSON.totalNutrients.FAT) {
-						itemFat.text((Math.round(responseJSON.totalNutrients.FAT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.FAT.unit);
-					}
-					else {
-						itemFat.text("0 g");
-					}
-					itemRow.append(itemFat);*/
 					if (responseJSON.totalNutrients.FAT) {
 						var itemFat = (Math.round(responseJSON.totalNutrients.FAT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.FAT.unit;
 					}
@@ -246,14 +237,6 @@ $(document).ready(function() {
 					}
 
 					// calories
-					/*var itemCal = $('<td class="itemCal">');
-					if (responseJSON.calories) {
-						itemCal.text(responseJSON.calories);
-					}
-					else {
-						itemCal.text("0");
-					}
-					itemRow.append(itemCal);*/
 					if (responseJSON.calories) {
 						var itemCal = responseJSON.calories;
 					}
@@ -262,14 +245,6 @@ $(document).ready(function() {
 					}
 
 					// sugar
-					/*var itemSugar = $('<td class="itemSugar">');
-					if (responseJSON.totalNutrients.SUGAR) {
-						itemSugar.text((Math.round(responseJSON.totalNutrients.SUGAR.quantity * 100) / 100) + " " + responseJSON.totalNutrients.SUGAR.unit);
-					}
-					else {
-						itemSugar.text("0 g");
-					}
-					itemRow.append(itemSugar);*/
 					if (responseJSON.totalNutrients.SUGAR) {
 						var itemSugar = (Math.round(responseJSON.totalNutrients.SUGAR.quantity * 100) / 100) + " " + responseJSON.totalNutrients.SUGAR.unit;
 					}
@@ -278,14 +253,6 @@ $(document).ready(function() {
 					}
 
 					// sodium
-					/*var itemNA = $('<td class="itemNA">');
-					if (responseJSON.totalNutrients.NA) {
-						itemNA.text((Math.round(responseJSON.totalNutrients.NA.quantity * 100) / 100) + " " + responseJSON.totalNutrients.NA.unit);
-					}
-					else {
-						itemNA.text("0 g");
-					}
-					itemRow.append(itemNA);*/
 					if (responseJSON.totalNutrients.NA) {
 						var itemNA = (Math.round(responseJSON.totalNutrients.NA.quantity * 100) / 100) + " " + responseJSON.totalNutrients.NA.unit;
 					}
@@ -294,14 +261,6 @@ $(document).ready(function() {
 					}
 
 					// protein
-					/*var itemProt = $('<td class="itemProt">');
-					if (responseJSON.totalNutrients.PROCNT) {
-						itemProt.text((Math.round(responseJSON.totalNutrients.PROCNT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.PROCNT.unit);
-					}
-					else {
-						itemProt.text("0 g");
-					}
-					itemRow.append(itemProt);*/
 					if (responseJSON.totalNutrients.PROCNT) {
 						var itemProt = (Math.round(responseJSON.totalNutrients.PROCNT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.PROCNT.unit;
 					}
@@ -310,30 +269,12 @@ $(document).ready(function() {
 					}
 
 					// carbs
-					/*var itemCarbs = $('<td class="itemCarbs">');
-					if (responseJSON.totalNutrients.CHOCDF) {
-						itemCarbs.text((Math.round(responseJSON.totalNutrients.CHOCDF.quantity * 100) / 100) + " " + responseJSON.totalNutrients.CHOCDF.unit);
-					}
-					else {
-						itemCarbs.text("0 g");
-					}
-					itemRow.append(itemCarbs);*/
 					if (responseJSON.totalNutrients.CHOCDF) {
 						var itemCarbs = (Math.round(responseJSON.totalNutrients.CHOCDF.quantity * 100) / 100) + " " + responseJSON.totalNutrients.CHOCDF.unit;
 					}
 					else {
 						var itemCarbs = "0 g";
 					}
-
-					// remove item
-					/*var removeItem = $('<td>');
-					var removeButton = $('<button class="btn btn-danger removeItem">');
-					removeButton.text("remove");
-					removeItem.append(removeButton);
-					itemRow.append(removeItem);*/
-
-					// append item name and nutrients list to container
-					// $('.table').append(itemRow);
 
 					newFood = {
 						foodItem: foodItem,
@@ -344,9 +285,9 @@ $(document).ready(function() {
 						itemSugar: itemSugar,
 						itemProt: itemProt
 					};
-					// fooddb = database.ref('/users/' + userID + '/food/');
+
 					fooddb.push(newFood);
-					// itemKey = fooddb.name();
+
 		        }) // end of .done
 			 	.fail(function(error){
 		            console.log(error);
@@ -355,8 +296,7 @@ $(document).ready(function() {
 	    };
 
 	    // Calls the geoSuccess function
-		navigator.geolocation.getCurrentPosition(geoSuccess);
-		console.log("run");
+		// navigator.geolocation.getCurrentPosition(geoSuccess);
 	    return false;
 	});
 
@@ -365,7 +305,6 @@ $(document).ready(function() {
 		if ($('tbody').children().length === 1) {
 			$('.panel').hide();
 		}
-		// archive = database.ref('/users/' + userID + '/archive/');
 		$(this).parent().parent().remove();
 	});
 });
@@ -380,7 +319,6 @@ var geoSuccess = function(position) {
 
  		// Upon success this runes the initMap function
  		initMap();
- 		console.log("run");
 	}; // closes geoSuccess function
 
 var map;
