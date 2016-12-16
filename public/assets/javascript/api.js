@@ -210,8 +210,8 @@ $('#foodSearchButton').on('click', function() {
 
 if (user) {
 	database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
-		item = snapshot.val().name();
-		console.log(item);
+		// item = snapshot.val().name();
+		console.log(snapshot.val().name());
 	});
 }
 
