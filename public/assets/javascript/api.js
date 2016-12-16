@@ -66,7 +66,8 @@ $(document).ready(function() {
 	        };
 
 	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
-				item = snapshot.val();
+				// item = snapshot.val();
+
 				// var itemRow = $('<tr class="itemRow" data-key="' + snapshot.key() + '">');
 				var itemRow = $('<tr class="itemRow">');
 
@@ -156,6 +157,9 @@ $(document).ready(function() {
 
 				// append item name and nutrients list to container
 				$('.table').append(itemRow);
+				if ($('tbody').children().length > 1) {
+					$('.panel').show();
+				}
 			});
 	  });
 	});
