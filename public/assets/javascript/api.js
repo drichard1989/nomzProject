@@ -65,8 +65,90 @@ $(document).ready(function() {
 	        };
 
 	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
-			// item = snapshot.val().name();
-			console.log(snapshot.val());
+				item = snapshot.val();
+				var itemRow = $('<tr class="itemRow" data-key="' + item.name() + '">');
+
+				// create table data for the item name and append it to the row
+				var itemName = $('<td class="itemName">');
+				// itemName.text(foodItem);
+				itemName.text(item.foodItem);
+				itemRow.append(itemName);
+
+				// fat
+				var itemFat = $('<td class="itemFat">');
+				/*if (responseJSON.totalNutrients.FAT) {
+					itemFat.text((Math.round(responseJSON.totalNutrients.FAT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.FAT.unit);
+				}
+				else {
+					itemFat.text("0 g");
+				}*/
+				itemFat.text(item.itemFat);
+				itemRow.append(itemFat);
+
+				// calories
+				var itemCal = $('<td class="itemCal">');
+				/*if (responseJSON.calories) {
+					itemCal.text(responseJSON.calories);
+				}
+				else {
+					itemCal.text("0");
+				}*/
+				itemCal.text(item.itemCal);
+				itemRow.append(itemCal);
+
+				// sugar
+				var itemSugar = $('<td class="itemSugar">');
+				/*if (responseJSON.totalNutrients.SUGAR) {
+					itemSugar.text((Math.round(responseJSON.totalNutrients.SUGAR.quantity * 100) / 100) + " " + responseJSON.totalNutrients.SUGAR.unit);
+				}
+				else {
+					itemSugar.text("0 g");
+				}*/
+				itemSugar.text(item.itemSugar);
+				itemRow.append(itemSugar);
+
+				// sodium
+				var itemNA = $('<td class="itemNA">');
+				/*if (responseJSON.totalNutrients.NA) {
+					itemNA.text((Math.round(responseJSON.totalNutrients.NA.quantity * 100) / 100) + " " + responseJSON.totalNutrients.NA.unit);
+				}
+				else {
+					itemNA.text("0 g");
+				}*/
+				itemNA.text(item.itemNA);
+				itemRow.append(itemNA);
+
+				// protein
+				var itemProt = $('<td class="itemProt">');
+				/*if (responseJSON.totalNutrients.PROCNT) {
+					itemProt.text((Math.round(responseJSON.totalNutrients.PROCNT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.PROCNT.unit);
+				}
+				else {
+					itemProt.text("0 g");
+				}*/
+				itemProt.text(item.itemProt);
+				itemRow.append(itemProt);
+
+				// carbs
+				var itemCarbs = $('<td class="itemCarbs">');
+				/*if (responseJSON.totalNutrients.CHOCDF) {
+					itemCarbs.text((Math.round(responseJSON.totalNutrients.CHOCDF.quantity * 100) / 100) + " " + responseJSON.totalNutrients.CHOCDF.unit);
+				}
+				else {
+					itemCarbs.text("0 g");
+				}*/
+				itemCarbs.text(item.itemCarbs);
+				itemRow.append(itemCarbs);
+
+				// remove item
+				var removeItem = $('<td>');
+				var removeButton = $('<button class="btn btn-danger removeItem">');
+				removeButton.text("remove");
+				removeItem.append(removeButton);
+				itemRow.append(removeItem);
+
+				// append item name and nutrients list to container
+				$('.table').append(itemRow);
 			});
 	  });
 	});
@@ -119,91 +201,129 @@ $(document).ready(function() {
 		            var responseJSON = $.parseJSON(response);
 		            
 		            // create a row for the item
-					var itemRow = $('<tr class="itemRow">');
+		            // moved code that appends to the table to sign in event listener
+					// var itemRow = $('<tr class="itemRow">');
 
 					// create table data for the item name and append it to the row
-					var itemName = $('<td class="itemName">');
+					/*var itemName = $('<td class="itemName">');
 					itemName.text(foodItem);
-					itemRow.append(itemName);
+					itemRow.append(itemName);*/
+					var itemName = foodItem;
 
 					// fat
-					var itemFat = $('<td class="itemFat">');
+					/*var itemFat = $('<td class="itemFat">');
 					if (responseJSON.totalNutrients.FAT) {
 						itemFat.text((Math.round(responseJSON.totalNutrients.FAT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.FAT.unit);
 					}
 					else {
 						itemFat.text("0 g");
 					}
-					itemRow.append(itemFat);
+					itemRow.append(itemFat);*/
+					if (responseJSON.totalNutrients.FAT) {
+						var itemFat = (Math.round(responseJSON.totalNutrients.FAT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.FAT.unit;
+					}
+					else {
+						var itemFat = "0 g";
+					}
 
 					// calories
-					var itemCal = $('<td class="itemCal">');
+					/*var itemCal = $('<td class="itemCal">');
 					if (responseJSON.calories) {
 						itemCal.text(responseJSON.calories);
 					}
 					else {
 						itemCal.text("0");
 					}
-					itemRow.append(itemCal);
+					itemRow.append(itemCal);*/
+					if (responseJSON.calories) {
+						var itemCal = responseJSON.calories;
+					}
+					else {
+						var itemCal = "0";
+					}
 
 					// sugar
-					var itemSugar = $('<td class="itemSugar">');
+					/*var itemSugar = $('<td class="itemSugar">');
 					if (responseJSON.totalNutrients.SUGAR) {
 						itemSugar.text((Math.round(responseJSON.totalNutrients.SUGAR.quantity * 100) / 100) + " " + responseJSON.totalNutrients.SUGAR.unit);
 					}
 					else {
 						itemSugar.text("0 g");
 					}
-					itemRow.append(itemSugar);
+					itemRow.append(itemSugar);*/
+					if (responseJSON.totalNutrients.SUGAR) {
+						var itemSugar = (Math.round(responseJSON.totalNutrients.SUGAR.quantity * 100) / 100) + " " + responseJSON.totalNutrients.SUGAR.unit;
+					}
+					else {
+						var itemSugar = "0 g";
+					}
 
 					// sodium
-					var itemNA = $('<td class="itemNA">');
+					/*var itemNA = $('<td class="itemNA">');
 					if (responseJSON.totalNutrients.NA) {
 						itemNA.text((Math.round(responseJSON.totalNutrients.NA.quantity * 100) / 100) + " " + responseJSON.totalNutrients.NA.unit);
 					}
 					else {
 						itemNA.text("0 g");
 					}
-					itemRow.append(itemNA);
+					itemRow.append(itemNA);*/
+					if (responseJSON.totalNutrients.NA) {
+						var itemNA = (Math.round(responseJSON.totalNutrients.NA.quantity * 100) / 100) + " " + responseJSON.totalNutrients.NA.unit;
+					}
+					else {
+						var itemNA = "0 g";
+					}
 
 					// protein
-					var itemProt = $('<td class="itemProt">');
+					/*var itemProt = $('<td class="itemProt">');
 					if (responseJSON.totalNutrients.PROCNT) {
 						itemProt.text((Math.round(responseJSON.totalNutrients.PROCNT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.PROCNT.unit);
 					}
 					else {
 						itemProt.text("0 g");
 					}
-					itemRow.append(itemProt);
+					itemRow.append(itemProt);*/
+					if (responseJSON.totalNutrients.PROCNT) {
+						var itemProt = (Math.round(responseJSON.totalNutrients.PROCNT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.PROCNT.unit;
+					}
+					else {
+						var itemProt = "0 g";
+					}
 
 					// carbs
-					var itemCarbs = $('<td class="itemCarbs">');
+					/*var itemCarbs = $('<td class="itemCarbs">');
 					if (responseJSON.totalNutrients.CHOCDF) {
 						itemCarbs.text((Math.round(responseJSON.totalNutrients.CHOCDF.quantity * 100) / 100) + " " + responseJSON.totalNutrients.CHOCDF.unit);
 					}
 					else {
 						itemCarbs.text("0 g");
 					}
-					itemRow.append(itemCarbs);
+					itemRow.append(itemCarbs);*/
+					if (responseJSON.totalNutrients.CHOCDF) {
+						var itemCarbs = (Math.round(responseJSON.totalNutrients.CHOCDF.quantity * 100) / 100) + " " + responseJSON.totalNutrients.CHOCDF.unit;
+					}
+					else {
+						var itemCarbs = "0 g";
+					}
 
 					// remove item
-					var removeItem = $('<td>');
+					/*var removeItem = $('<td>');
 					var removeButton = $('<button class="btn btn-danger removeItem">');
 					removeButton.text("remove");
 					removeItem.append(removeButton);
-					itemRow.append(removeItem);
+					itemRow.append(removeItem);*/
 
 					// append item name and nutrients list to container
-					$('.table').append(itemRow);
+					// $('.table').append(itemRow);
 
 					newFood = {
 						foodItem: foodItem,
-						itemFat: itemFat.text(),
-						itemCarbs: itemCarbs.text(),
-						itemCal: itemCal.text(),
-						itemNA: itemNA.text(),
-						itemSugar: itemSugar.text(),
-						itemProt: itemProt.text()
+						itemFat: itemFat,
+						itemCarbs: itemCarbs,
+						itemCal: itemCal,
+						itemNA: itemNA,
+						itemSugar: itemSugar,
+						itemProt: itemProt)
 					};
 					// fooddb = database.ref('/users/' + userID + '/food/');
 					fooddb.push(newFood);
