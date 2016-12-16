@@ -11,7 +11,7 @@ body{
 }
 
 div.col-lg-8 {
-  padding-bottom: 30px;
+  padding-bottom: 60px;
 }
 
 footer {
@@ -30,6 +30,40 @@ a.navbar-brand
 {
     padding-top: 5px;
 }
+
+.container-fluid {
+  background-color: #222222;
+  text-align: center;
+}
+
+/*---footer---*/
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  flex: 1;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 50px;
+  background-color: #222222;
+}
+
+p {
+  margin-bottom: 0px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #9d9d9d;
+}
+/*---footer---*/
 
 .panel {
   background-image: url(../images/nomzListBG.jpg);
@@ -62,6 +96,10 @@ th {
 
 td {
     text-align: center!important;
+}
+
+td.itemCarbs, td.itemProt, td.itemNA, td.itemSugar, td.itemCal, td.itemFat, td.itemName {
+  padding-top: 16px;
 }
 
 /*changes modal header color to match color scheme of page, border radius change gives rounded edges*/
@@ -142,6 +180,7 @@ nav.navbar.navbar-default.navbar-inverse {
     }
 #mapPanel {
 	height: 444px;
+  margin-bottom: 60px;
 }
 
 /*Media Queries for screen size of 980px*/
