@@ -328,7 +328,7 @@ $(document).ready(function() {
 					};
 					// fooddb = database.ref('/users/' + userID + '/food/');
 					fooddb.push(newFood);
-					itemKey = foodbd.name();
+					itemKey = fooddb.name();
 		        }) // end of .done
 			 	.fail(function(error){
 		            console.log(error);
