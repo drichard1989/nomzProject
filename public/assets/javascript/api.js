@@ -299,10 +299,9 @@ $(document).ready(function() {
 
 
 	$(document).on('click', '.removeItem', function() {
-		if ($('tbody').children().length === 1) {
-			$('.panel').hide();
-		}
-		$(this).parent().parent().remove();
+		var key = $(this).parent().parent().attr('data-key');
+		console.log(key);
+		// $(this).parent().parent().remove();
 	});
 });
 
