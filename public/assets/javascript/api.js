@@ -67,7 +67,8 @@ $(document).ready(function() {
 
 	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
 				item = snapshot.val();
-				var itemRow = $('<tr class="itemRow" data-key="' + itemKey + '">');
+				var itemRow = $('<tr class="itemRow" data-key="' + item.key() + '">');
+				// var itemRow = $('<tr class="itemRow">');
 
 				// create table data for the item name and append it to the row
 				var itemName = $('<td class="itemName">');
@@ -328,7 +329,7 @@ $(document).ready(function() {
 					};
 					// fooddb = database.ref('/users/' + userID + '/food/');
 					fooddb.push(newFood);
-					itemKey = fooddb.name();
+					// itemKey = fooddb.name();
 		        }) // end of .done
 			 	.fail(function(error){
 		            console.log(error);
