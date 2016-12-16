@@ -136,3 +136,7 @@ nav.navbar.navbar-default.navbar-inverse {
     color: #fff;
     background-color:#59b5fa;
 }
+#map {
+        height: 50%;
+        width: 50%;
+      }
