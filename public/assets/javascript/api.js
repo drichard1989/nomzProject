@@ -6,7 +6,6 @@ $(document).ready(function() {
 	var userID ;
 	var newFood;
 	var fooddb;
-	var archive;
 	var item;
 	var signedIn = false;
 	var itemKey;
@@ -63,7 +62,6 @@ $(document).ready(function() {
 				database.ref().push(users);
 				userdb =  database.ref('/users/' + userID);
 				fooddb = database.ref('/users/' + userID + '/food/');
-				archive = database.ref('/users/' + userID + '/archive/');
 	        };
 
 	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
@@ -194,7 +192,6 @@ $(document).ready(function() {
 		userID  = "";
 		newFood = "";
 		fooddb = "";
-		archive = "";
 		signedIn = false;
 		userMap = false;
 		$('tr.itemRow').each(function() {
@@ -304,24 +301,13 @@ $(document).ready(function() {
 	$(document).on('click', '.removeItem', function() {
 		var key = $(this).parent().parent().attr('data-key');
 		console.log("Removing item with key: " + key);
-		// archive.push(fooddb.child(key));
-		var archivedItem = {
-			foodItem: fooddb.child(key).foodItem,
-			itemFat: fooddb.child(key).itemFat,
-			itemCarbs: fooddb.child(key).itemCarbs,
-			itemCal: fooddb.child(key).itemCal,
-			itemNA: fooddb.child(key).itemNA,
-			itemSugar: fooddb.child(key).itemSugar,
-			itemProt: fooddb.child(key).itemProt
-		}
-		archive.push(archivedItem);
 		fooddb.child(key).remove();
 		$(this).parent().parent().remove();
 		if ($('tbody').children().length === 1) {
 			$('.panel').hide();
 		}
 	});
-});
+// });
 
 // This is the BEGINNING of the GOOGLE MAPS API
 
@@ -403,3 +389,5 @@ function createMarker(place) {
     }); // closes the event listener
     console.log("run");
 } // closes the createMarker function
+
+}); 
