@@ -99,7 +99,7 @@ td {
 }
 
 td.itemCarbs, td.itemProt, td.itemNA, td.itemSugar, td.itemCal, td.itemFat, td.itemName {
-  padding-top: 16px;
+  padding-top: 16px!important;
 }
 
 /*changes modal header color to match color scheme of page, border radius change gives rounded edges*/
