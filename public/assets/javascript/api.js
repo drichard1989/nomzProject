@@ -226,78 +226,78 @@ $(document).ready(function() {
 
 // This is the BEGINNING of the GOOGLE MAPS API
 
-  var startPos;
+var startPos;
    
     // This function get's the user's location
- 	var geoSuccess = function(position) {
+var geoSuccess = function(position) {
  		startPos = position;
 
  		// Upon success this runes the initMap function
  		initMap();
 	}; // closes geoSuccess function
 
-    var map;
+var map;
     // This function initiates the map
-    function initMap() {
-    	// This takes the user's location and separates the lat and long
-    	var uLat = startPos.coords.latitude;
-    	var uLng = startPos.coords.longitude;
-    	var uluru = {lat: uLat, lng: uLng}
-    	// Adds the map to the to the html
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: uluru,
-          zoom: 12
-        }); // Closes new google.maps function
+function initMap() {
+	// This takes the user's location and separates the lat and long
+	var uLat = startPos.coords.latitude;
+	var uLng = startPos.coords.longitude;
+	var uluru = {lat: uLat, lng: uLng}
+	// Adds the map to the to the html
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: uluru,
+      zoom: 12
+    }); // Closes new google.maps function
 
-        // This object creates a marker on the map at the user's location
-        // This calls google's library
-        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+    // This object creates a marker on the map at the user's location
+    // This calls google's library
+    var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
-        var marker = new google.maps.Marker({
-        	draggable: false,
-          	animation: google.maps.Animation.DROP,
-        	position: uluru,
-        	icon: '../images/greenDot.png',
-        	// icon: iconBase + 'parking_lot_maps.png',
-        	map: map
-        }); // Closes the marker object
-       // Calls the in google function to give markers info windows
-        infowindow = new google.maps.InfoWindow();
+    var marker = new google.maps.Marker({
+    	draggable: false,
+      	animation: google.maps.Animation.DROP,
+    	position: uluru,
+    	icon: 'assets/images/greenDot.png',
+    	// icon: iconBase + 'parking_lot_maps.png',
+    	map: map
+    }); // Closes the marker object
+   // Calls the in google function to give markers info windows
+    infowindow = new google.maps.InfoWindow();
 
-        // This creates the auto search for nearby grocers
-        var service = new google.maps.places.PlacesService(map);
-        service.textSearch({
-          location: uluru,
-          radius: 500,
-          query: "grocery+store",
-          // type: ["grocery_or_supermarket"],
-          // keyword: ["grocery"],
-          rankBy: google.maps.places.RankBy.PROMINENCE
-        }, callback);
-    }; // closes initMap
+    // This creates the auto search for nearby grocers
+    var service = new google.maps.places.PlacesService(map);
+    service.textSearch({
+      location: uluru,
+      radius: 500,
+      query: "grocery+store",
+      // type: ["grocery_or_supermarket"],
+      // keyword: ["grocery"],
+      rankBy: google.maps.places.RankBy.PROMINENCE
+    }, callback);
+}; // closes initMap
 
     // runs the createMarker function for each serach reult term
-    function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-        	for (var i = 0; i < 11; i++) {
-          		createMarker(results[i]);
-        	}; // closes the for statement
-        }; // closes the if statement
-    }; // CLoses the callback function
+function callback(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+    	for (var i = 0; i < 11; i++) {
+      		createMarker(results[i]);
+    	}; // closes the for statement
+    }; // closes the if statement
+}; // CLoses the callback function
 
-    // This creates a marker for search terms
-    function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map,
-          icon: "../images/nomzMapIcon.png",
-          animation: google.maps.Animation.DROP,
-          position: place.geometry.location
-        }); // closes the marker function
+// This creates a marker for search terms
+function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+      map: map,
+      icon: "assets/images/nomzMapIcon.png",
+      animation: google.maps.Animation.DROP,
+      position: place.geometry.location
+    }); // closes the marker function
 
-        // This is a listener for user clicks to on markers, when clicked it will display marker info
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-        }); // closes the event listener
-      } // closes the createMarker function
+    // This is a listener for user clicks to on markers, when clicked it will display marker info
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.setContent(place.name);
+      infowindow.open(map, this);
+    }); // closes the event listener
+  } // closes the createMarker function
