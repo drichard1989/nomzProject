@@ -67,11 +67,8 @@ $(document).ready(function() {
 	        };
 
 	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
-				// item = snapshot.val();
-				console.log(snapshot.key);
 				// var itemRow = $('<tr class="itemRow" data-key="' + snapshot.key() + '">');
-				var itemRow = $('<tr class="itemRow">');
-
+				var itemRow = $('<tr class="itemRow" data-key="' + snapshot.key + '">');
 				// create table data for the item name and append it to the row
 				var itemName = $('<td class="itemName">');
 				// itemName.text(foodItem);
