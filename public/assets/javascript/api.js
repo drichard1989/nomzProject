@@ -323,7 +323,7 @@ $(document).ready(function() {
 						itemCal: itemCal,
 						itemNA: itemNA,
 						itemSugar: itemSugar,
-						itemProt: itemProt)
+						itemProt: itemProt
 					};
 					// fooddb = database.ref('/users/' + userID + '/food/');
 					fooddb.push(newFood);
