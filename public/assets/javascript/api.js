@@ -300,8 +300,9 @@ $(document).ready(function() {
 
 	$(document).on('click', '.removeItem', function() {
 		var key = $(this).parent().parent().attr('data-key');
-		console.log(key);
-		// $(this).parent().parent().remove();
+		console.log("Removing item with key: " + key);
+		fooddb.child(key).remove();
+		$(this).parent().parent().remove();
 	});
 });
 
