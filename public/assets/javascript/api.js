@@ -304,7 +304,17 @@ $(document).ready(function() {
 	$(document).on('click', '.removeItem', function() {
 		var key = $(this).parent().parent().attr('data-key');
 		console.log("Removing item with key: " + key);
-		archive.push(fooddb.child(key));
+		// archive.push(fooddb.child(key));
+		var archivedItem = {
+			foodItem: fooddb.child(key).foodItem,
+			itemFat: fooddb.child(key).itemFat,
+			itemCarbs: fooddb.child(key).itemCarbs,
+			itemCal: fooddb.child(key).itemCal,
+			itemNA: fooddb.child(key).itemNA,
+			itemSugar: fooddb.child(key).itemSugar,
+			itemProt: fooddb.child(key).itemProt
+		}
+		archive.push(archivedItem);
 		fooddb.child(key).remove();
 		$(this).parent().parent().remove();
 		if ($('tbody').children().length === 1) {
