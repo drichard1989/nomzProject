@@ -10,6 +10,7 @@ var userID ;
 var newFood;
 var fooddb;
 var archive;
+var item;
 
 // Variable to Initialize Firebase
 var config = {
@@ -210,10 +211,12 @@ $('#foodSearchButton').on('click', function() {
     return false;
 });
 
-database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
-	var item = snapshot.val().name();
-	console.log(item);
-});
+if (user) {
+	database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
+		item = snapshot.val().name();
+		console.log(item);
+	});
+}
 
 $(document).on('click', '.removeItem', function() {
 	if ($('tbody').children().length === 1) {
