@@ -63,7 +63,7 @@ $(document).ready(function() {
 				database.ref().push(users);
 				userdb =  database.ref('/users/' + userID);
 				fooddb = database.ref('/users/' + userID + '/food/');
-				// archive = database.ref('/users/' + userID + '/archive/');
+				archive = database.ref('/users/' + userID + '/archive/');
 	        };
 
 	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
@@ -304,6 +304,7 @@ $(document).ready(function() {
 	$(document).on('click', '.removeItem', function() {
 		var key = $(this).parent().parent().attr('data-key');
 		console.log("Removing item with key: " + key);
+		archive.push(fooddb.child(key));
 		fooddb.child(key).remove();
 		$(this).parent().parent().remove();
 		if ($('tbody').children().length === 1) {
