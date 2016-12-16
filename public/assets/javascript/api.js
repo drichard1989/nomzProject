@@ -286,7 +286,8 @@ $(document).ready(function() {
 						itemProt: itemProt
 					};
 
-					fooddb.push(newFood);
+					itemKey = fooddb.push(newFood).key();
+					console.log(itemKey);
 
 		        }) // end of .done
 			 	.fail(function(error){
