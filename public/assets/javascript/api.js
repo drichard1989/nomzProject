@@ -303,6 +303,9 @@ $(document).ready(function() {
 		console.log("Removing item with key: " + key);
 		fooddb.child(key).remove();
 		$(this).parent().parent().remove();
+		if ($('tbody').children().length === 1) {
+			$('.panel').hide();
+		}
 	});
 });
 
