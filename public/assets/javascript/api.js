@@ -9,6 +9,7 @@ var userdb;
 var userID ;
 var newFood;
 var fooddb;
+var archive;
 
 // Variable to Initialize Firebase
 var config = {
@@ -57,6 +58,8 @@ $("#signInDropdown").on("click", "#googleSignInButton", function(){
 
 			database.ref().push(users);
 			userdb =  database.ref('/users/' + userID);
+			fooddb = database.ref('/users/' + userID + '/food/');
+			archive = database.ref('/users/' + userID + '/archive/');
         };
 
         console.log("Consoling 'firebaseUser': " + firebaseUser);
@@ -78,7 +81,14 @@ $("#navbarParent").on("click", "#signOutButton", function(){
     $("#userName").html("");
     $("#signOutButton").hide();
     $("#signInDropdown").show();
-
+    profilePicUrl = "";
+	userName = "";
+	user = "";
+	userdb = "";
+	userID  = "";
+	newFood = "";
+	fooddb = "";
+	archive = "";
 });
 
   // function that triggers the submit button when users hit "enter"
@@ -189,7 +199,7 @@ $('#foodSearchButton').on('click', function() {
 					itemSugar: itemSugar.text(),
 					itemProt: itemProt.text()
 				};
-				fooddb = database.ref('/users/' + userID + '/food/');
+				// fooddb = database.ref('/users/' + userID + '/food/');
 				fooddb.push(newFood);
 	        }) // end of .done
 		 	.fail(function(error){
@@ -200,9 +210,15 @@ $('#foodSearchButton').on('click', function() {
     return false;
 });
 
+database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
+	var item = snapshot.val().name();
+	console.log(item);
+}
+
 $(document).on('click', '.removeItem', function() {
-	$(this).parent().parent().remove();
 	if ($('tbody').children().length === 1) {
 		$('.panel').hide();
 	}
+	// archive = database.ref('/users/' + userID + '/archive/');
+	$(this).parent().parent().remove();
 });
