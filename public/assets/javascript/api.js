@@ -62,7 +62,6 @@ $("#signInDropdown").on("click", "#googleSignInButton", function(){
 			fooddb = database.ref('/users/' + userID + '/food/');
 			archive = database.ref('/users/' + userID + '/archive/');
         };
-        console.log("Consoling 'userObject': " + userObject);
   });
 });
 
