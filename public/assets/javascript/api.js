@@ -68,7 +68,7 @@ $(document).ready(function() {
 
 	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
 				// item = snapshot.val();
-
+				console.log(snapshot.key);
 				// var itemRow = $('<tr class="itemRow" data-key="' + snapshot.key() + '">');
 				var itemRow = $('<tr class="itemRow">');
 
@@ -285,9 +285,8 @@ $(document).ready(function() {
 						itemSugar: itemSugar,
 						itemProt: itemProt
 					};
-					var ref = fooddb.push();
-					itemKey = ref.key();
-					console.log(itemKey);
+
+					fooddb.push(newFood);
 
 		        }) // end of .done
 			 	.fail(function(error){
