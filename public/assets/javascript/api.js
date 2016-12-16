@@ -160,6 +160,9 @@ $(document).ready(function() {
 				if ($('tbody').children().length > 1) {
 					$('.panel').show();
 				}
+				else {
+					$('.panel').hide();
+				}
 			});
 	  });
 	});
@@ -188,6 +191,11 @@ $(document).ready(function() {
 		fooddb = "";
 		archive = "";
 		signedIn = false;
+		$('tr.itemRow').each(function() {
+			$(this).remove();
+		});
+		$('#map').empty();
+		$('.panel').hide();
 	});
 
 	  // function that triggers the submit button when users hit "enter"
@@ -352,12 +360,6 @@ $(document).ready(function() {
 	    return false;
 	});
 
-	if (user) {
-		database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
-			// item = snapshot.val().name();
-			console.log(snapshot.val());
-		});
-	}
 
 	$(document).on('click', '.removeItem', function() {
 		if ($('tbody').children().length === 1) {
