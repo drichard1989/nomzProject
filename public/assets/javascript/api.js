@@ -61,8 +61,13 @@ $(document).ready(function() {
 				database.ref().push(users);
 				userdb =  database.ref('/users/' + userID);
 				fooddb = database.ref('/users/' + userID + '/food/');
-				archive = database.ref('/users/' + userID + '/archive/');
+				// archive = database.ref('/users/' + userID + '/archive/');
 	        };
+
+	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
+			// item = snapshot.val().name();
+			console.log(snapshot.val());
+			});
 	  });
 	});
 
@@ -92,7 +97,6 @@ $(document).ready(function() {
 		signedIn = false;
 	});
 
-if (signedIn) {
 	  // function that triggers the submit button when users hit "enter"
 	$("#foodSearchBox").keyup(function(event){
 		if(event.keyCode == 13){
@@ -215,7 +219,7 @@ if (signedIn) {
 		console.log("run");
 	    return false;
 	});
-}
+
 	if (user) {
 		database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
 			// item = snapshot.val().name();
