@@ -158,7 +158,7 @@ $(document).ready(function() {
 
 				if ($('tbody').children().length > 1) {
 					// $('tr.itemRow').prepend(itemRow);
-					itemRow.prependTo($('table > tbody > tr:second'));
+					$('#headerRow').after(itemRow);
 					$('.panel').show();
 					if (!userMap) {
 						navigator.geolocation.getCurrentPosition(geoSuccess);
