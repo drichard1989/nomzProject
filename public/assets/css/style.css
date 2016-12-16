@@ -137,6 +137,7 @@ nav.navbar.navbar-default.navbar-inverse {
     background-color:#59b5fa;
 }
 #map {
-        height: 100%!important;
-        width: 100%!important;
+        height: 300px!important;
+        width: 80%!important;
+        
       }
