@@ -213,7 +213,7 @@ $('#foodSearchButton').on('click', function() {
 database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
 	var item = snapshot.val().name();
 	console.log(item);
-}
+});
 
 $(document).on('click', '.removeItem', function() {
 	if ($('tbody').children().length === 1) {
