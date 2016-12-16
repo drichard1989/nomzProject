@@ -285,8 +285,8 @@ $(document).ready(function() {
 						itemSugar: itemSugar,
 						itemProt: itemProt
 					};
-
-					itemKey = fooddb.push(newFood).key();
+					var ref = fooddb.push();
+					itemKey = ref.key();
 					console.log(itemKey);
 
 		        }) // end of .done
