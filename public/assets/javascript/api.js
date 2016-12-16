@@ -249,7 +249,6 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: uluru,
       zoom: 12
-      console.log("run");
     }); // Closes new google.maps function
 
     // This object creates a marker on the map at the user's location
@@ -277,6 +276,7 @@ function initMap() {
       // keyword: ["grocery"],
       rankBy: google.maps.places.RankBy.PROMINENCE
     }, callback);
+    console.log("run");
 }; // closes initMap
 
     // runs the createMarker function for each serach reult term
