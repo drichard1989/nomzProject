@@ -1,0 +1,24 @@
+{
+  "name": "nomz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serverexample.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node serverexample.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drichard1989/nomzProject.git"
+  },
+  "author": "Dylan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drichard1989/nomzProject/issues"
+  },
+  "homepage": "https://github.com/drichard1989/nomzProject#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "request": "^2.79.0"
+  }
+}
