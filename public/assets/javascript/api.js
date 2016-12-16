@@ -9,6 +9,7 @@ $(document).ready(function() {
 	var archive;
 	var item;
 	var signedIn = false;
+	var itemKey;
 
 	// Variable to Initialize Firebase
 	var config = {
@@ -66,7 +67,7 @@ $(document).ready(function() {
 
 	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
 				item = snapshot.val();
-				var itemRow = $('<tr class="itemRow" data-key="' + item.name() + '">');
+				var itemRow = $('<tr class="itemRow" data-key="' + itemKey + '">');
 
 				// create table data for the item name and append it to the row
 				var itemName = $('<td class="itemName">');
@@ -327,6 +328,7 @@ $(document).ready(function() {
 					};
 					// fooddb = database.ref('/users/' + userID + '/food/');
 					fooddb.push(newFood);
+					itemKey = foodbd.name();
 		        }) // end of .done
 			 	.fail(function(error){
 		            console.log(error);
