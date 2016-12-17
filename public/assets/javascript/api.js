@@ -209,89 +209,93 @@ $(document).ready(function() {
 	}); // end function that triggers the submit button when pressing "enter"
 
 	$('#foodSearchButton').on('click', function() {
-		// the button was clicked while the box was clicked
-		if ($('#foodSearchBox').val().trim() === ""){
-			$('#addFoodItemModal').modal();
-		}
-	    else {
-			var foodItem = $('#foodSearchBox').val().trim();
-			if ($('tbody').children().length === 1) {
-				$('.panel').show();
+		if (signedIn) {
+			// the button was clicked while the box was clicked
+			if ($('#foodSearchBox').val().trim() === ""){
+				$('#addFoodItemModal').modal();
 			}
-			 $.ajax({url:"/api/nutrition/" + foodItem, method:"get"})
-			 	.done(function(response){
-		            var responseJSON = $.parseJSON(response);
+		    else {
+				var foodItem = $('#foodSearchBox').val().trim();
+				if ($('tbody').children().length === 1) {
+					$('.panel').show();
+				}
+				 $.ajax({url:"/api/nutrition/" + foodItem, method:"get"})
+				 	.done(function(response){
+			            var responseJSON = $.parseJSON(response);
 
-					// create table data for the item name and append it to the row
-					var itemName = foodItem;
+						// create table data for the item name and append it to the row
+						var itemName = foodItem;
 
-					// fat
-					if (responseJSON.totalNutrients.FAT) {
-						var itemFat = (Math.round(responseJSON.totalNutrients.FAT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.FAT.unit;
-					}
-					else {
-						var itemFat = "0 g";
-					}
+						// fat
+						if (responseJSON.totalNutrients.FAT) {
+							var itemFat = (Math.round(responseJSON.totalNutrients.FAT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.FAT.unit;
+						}
+						else {
+							var itemFat = "0 g";
+						}
 
-					// calories
-					if (responseJSON.calories) {
-						var itemCal = responseJSON.calories;
-					}
-					else {
-						var itemCal = "0";
-					}
+						// calories
+						if (responseJSON.calories) {
+							var itemCal = responseJSON.calories;
+						}
+						else {
+							var itemCal = "0";
+						}
 
-					// sugar
-					if (responseJSON.totalNutrients.SUGAR) {
-						var itemSugar = (Math.round(responseJSON.totalNutrients.SUGAR.quantity * 100) / 100) + " " + responseJSON.totalNutrients.SUGAR.unit;
-					}
-					else {
-						var itemSugar = "0 g";
-					}
+						// sugar
+						if (responseJSON.totalNutrients.SUGAR) {
+							var itemSugar = (Math.round(responseJSON.totalNutrients.SUGAR.quantity * 100) / 100) + " " + responseJSON.totalNutrients.SUGAR.unit;
+						}
+						else {
+							var itemSugar = "0 g";
+						}
 
-					// sodium
-					if (responseJSON.totalNutrients.NA) {
-						var itemNA = (Math.round(responseJSON.totalNutrients.NA.quantity * 100) / 100) + " " + responseJSON.totalNutrients.NA.unit;
-					}
-					else {
-						var itemNA = "0 g";
-					}
+						// sodium
+						if (responseJSON.totalNutrients.NA) {
+							var itemNA = (Math.round(responseJSON.totalNutrients.NA.quantity * 100) / 100) + " " + responseJSON.totalNutrients.NA.unit;
+						}
+						else {
+							var itemNA = "0 g";
+						}
 
-					// protein
-					if (responseJSON.totalNutrients.PROCNT) {
-						var itemProt = (Math.round(responseJSON.totalNutrients.PROCNT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.PROCNT.unit;
-					}
-					else {
-						var itemProt = "0 g";
-					}
+						// protein
+						if (responseJSON.totalNutrients.PROCNT) {
+							var itemProt = (Math.round(responseJSON.totalNutrients.PROCNT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.PROCNT.unit;
+						}
+						else {
+							var itemProt = "0 g";
+						}
 
-					// carbs
-					if (responseJSON.totalNutrients.CHOCDF) {
-						var itemCarbs = (Math.round(responseJSON.totalNutrients.CHOCDF.quantity * 100) / 100) + " " + responseJSON.totalNutrients.CHOCDF.unit;
-					}
-					else {
-						var itemCarbs = "0 g";
-					}
+						// carbs
+						if (responseJSON.totalNutrients.CHOCDF) {
+							var itemCarbs = (Math.round(responseJSON.totalNutrients.CHOCDF.quantity * 100) / 100) + " " + responseJSON.totalNutrients.CHOCDF.unit;
+						}
+						else {
+							var itemCarbs = "0 g";
+						}
 
-					newFood = {
-						foodItem: foodItem,
-						itemFat: itemFat,
-						itemCarbs: itemCarbs,
-						itemCal: itemCal,
-						itemNA: itemNA,
-						itemSugar: itemSugar,
-						itemProt: itemProt
-					};
+						newFood = {
+							foodItem: foodItem,
+							itemFat: itemFat,
+							itemCarbs: itemCarbs,
+							itemCal: itemCal,
+							itemNA: itemNA,
+							itemSugar: itemSugar,
+							itemProt: itemProt
+						};
 
-					fooddb.push(newFood);
+						fooddb.push(newFood);
 
-		        }) // end of .done
-			 	.fail(function(error){
-		            console.log(error);
-		        });
-	        $("#foodSearchBox").val("");
-	    };
-
+			        }) // end of .done
+				 	.fail(function(error){
+			            console.log(error);
+			        });
+		        $("#foodSearchBox").val("");
+		    };
+	    }
+	    else {
+	    	console.log("Sorry, you're not signed in. Please sign in to add an item to your list");
+	    }
 	    // Calls the geoSuccess function
 		// navigator.geolocation.getCurrentPosition(geoSuccess);
 	    return false;
