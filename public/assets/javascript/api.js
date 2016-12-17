@@ -125,10 +125,10 @@ $(document).ready(function() {
 					}
 				}
 				// if the table only contains 
-				/*else {
+				else {
 					// append item name and nutrients list to container
 					$('.table').append(itemRow);
-				}*/
+				}
 			});
 	  });
 	});
