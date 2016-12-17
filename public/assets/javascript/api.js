@@ -34,7 +34,7 @@ $(document).ready(function() {
 	var provider = new firebase.auth.GoogleAuthProvider();
 
 	// This signs in the user when they click on the google sign in button. It also does other things, like shows the sign out button, hides the sign in drop down button, it shows the users image, and display name as well, and also updates a global variable with the current user id so that the food items can be added to their database under their userID
-	$("#signInDropdown").on("click", "#googleSignInButton", function(){
+	$("#navbarParent").on("click", "#googleSignInButton", function(){
 
 	    firebase.auth().signInWithPopup(provider).then(function(result) {
 			// This gives you a Google Access Token. You can use it to access the Google API.
@@ -53,7 +53,7 @@ $(document).ready(function() {
 			$("#userThumbnailImage").show();
 			$("#userName").html(userName);
 			$("#signOutButton").show();
-			$("#signInDropdown").hide();
+			$("#googleSignInButton").hide();
 
 			// create assign references to firebase nodes 
 			database.ref().push(users);
@@ -146,7 +146,7 @@ $(document).ready(function() {
 	    $("#userThumbnailImage").hide();
 	    $("#userName").html("");
 	    $("#signOutButton").hide();
-	    $("#signInDropdown").show();
+	    $("#googleSignInButton").show();
 	    // reset global vars
 	    profilePicUrl = "";
 		userName = "";
