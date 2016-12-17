@@ -13,7 +13,7 @@ $(document).ready(function() {
 	var fooddb;
 	var item;
 	var signedIn = false;
-	// var userMap = false;
+	var userMap = false;
 
 	// Variable to Initialize Firebase
 	var config = {
