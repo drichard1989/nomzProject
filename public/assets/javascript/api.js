@@ -13,7 +13,7 @@ $(document).ready(function() {
 	var fooddb;
 	var item;
 	var signedIn = false;
-	var userMap = false;
+	// var userMap = false;
 
 	// Variable to Initialize Firebase
 	var config = {
@@ -129,6 +129,13 @@ $(document).ready(function() {
 					// append item name and nutrients list to container
 					$('.table').append(itemRow);
 				}
+
+				// if the user has just loaded the page
+					if (!userMap) {
+						// Calls the geoSuccess function and sets userMap to true
+						navigator.geolocation.getCurrentPosition(geoSuccess);
+						userMap = true;
+					}
 			}); // end of child_added event listener
 	  }); // end of authentication function
 	}); // end of sign in event listener
