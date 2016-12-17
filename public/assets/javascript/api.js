@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 	};
 	var userdb;
-	var userID;
+	var userID = "undefined";
 	var newFood;
 	var fooddb;
 	var item;
@@ -60,7 +60,8 @@ $(document).ready(function() {
 			userdb =  database.ref('/users/' + userID);
 			fooddb = database.ref('/users/' + userID + '/food/');
 		}); // end of authentication function
-			
+	}); // end of sign in event listener
+	
 		// event listener that waits for an item to be added to the current user's food database
         database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
         	// create a jQuery row element with class itemRow and data-key attribute with the key for the added item 
@@ -124,7 +125,7 @@ $(document).ready(function() {
 			}
 		}); // end of child_added event listener
 	  // }); // end of authentication function
-	}); // end of sign in event listener
+	// }); // end of sign in event listener
 
 	// signs user out
 	$("#navbarParent").on("click", "#signOutButton", function(){
