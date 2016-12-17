@@ -129,24 +129,26 @@ $(document).ready(function() {
 					// append item name and nutrients list to container
 					$('.table').append(itemRow);
 				}
-			});
-	  });
-	});
+			}); // end of child_added event listener
+	  }); // end of authentication function
+	}); // end of sign in event listener
 
+	// signs user out
 	$("#navbarParent").on("click", "#signOutButton", function(){
-
+		// signs the user out and consoles success message
 		firebase.auth().signOut().then(function() {
 			console.log('Signed Out');
 		}, function(error) {
 			console.error('Sign Out Error', error);
 		});
 
-
+		// resets nav info
 	    $("#userImage").attr("src", "");
 	    $("#userThumbnailImage").hide();
 	    $("#userName").html("");
 	    $("#signOutButton").hide();
 	    $("#signInDropdown").show();
+
 	    // reset global vars
 	    profilePicUrl = "";
 		userName = "";
@@ -157,42 +159,59 @@ $(document).ready(function() {
 		fooddb = "";
 		signedIn = false;
 		userMap = false;
+
+		// removes each row with class itemRow from the table
 		$('tr.itemRow').each(function() {
 			$(this).remove();
 		});
-		$('#map').empty();
-		$('.panel').hide();
-	});
 
-	  // function that triggers the submit button when users hit "enter"
+		// empties the div that holds the map
+		$('#map').empty();
+
+		// hide the panels
+		$('.panel').hide();
+	}); // end of sign out event listener
+
+	// function that triggers the submit button when users hit "enter"
 	$("#foodSearchBox").keyup(function(event){
 		if(event.keyCode == 13){
 		  $("#foodSearchButton").click();
 		}
 	}); // end function that triggers the submit button when pressing "enter"
 
+	// triggered when user clicks the add button or presses enter while the cursor is in the input box
 	$('#foodSearchButton').on('click', function() {
+		// only allow user to search if they are already signed in
 		if (signedIn) {
+
 			// the button was clicked while the box was clicked
 			if ($('#foodSearchBox').val().trim() === ""){
 				$('#addFoodItemModal').modal();
 			}
+			// add button was not triggered while input box was empty
 		    else {
+		    	// capture the value of the input box
 				var foodItem = $('#foodSearchBox').val().trim();
+				// if table was empty when the user signed in, show the panels
 				if ($('tbody').children().length === 1) {
 					$('.panel').show();
 				}
+				// asks the server to run the api request
 				 $.ajax({url:"/api/nutrition/" + foodItem, method:"get"})
 				 	.done(function(response){
+				 		// parses the text that is returned from server into a json object
 			            var responseJSON = $.parseJSON(response);
 
 						// create table data for the item name and append it to the row
 						var itemName = foodItem;
 
 						// fat
+						// if the item has fat, then assign itemFat to the quantity concatenated with a space and the unit
+						// e.g. 30 g
 						if (responseJSON.totalNutrients.FAT) {
 							var itemFat = (Math.round(responseJSON.totalNutrients.FAT.quantity * 100) / 100) + " " + responseJSON.totalNutrients.FAT.unit;
 						}
+						// if the fat property does not exist, then we want to display 0 g in the fat cell
 						else {
 							var itemFat = "0 g";
 						}
@@ -237,6 +256,7 @@ $(document).ready(function() {
 							var itemCarbs = "0 g";
 						}
 
+						// this is the object that will be pushed to firebase
 						newFood = {
 							foodItem: foodItem,
 							itemFat: itemFat,
@@ -247,27 +267,35 @@ $(document).ready(function() {
 							itemProt: itemProt
 						};
 
+						// push the new food item so that it becomes a new child of the food node
 						fooddb.push(newFood);
 
 			        }) // end of .done
 				 	.fail(function(error){
 			            console.log(error);
-			        });
-		        $("#foodSearchBox").val("");
+			        }); // end of .fail
 		    };
 	    }
 	    else {
 	    	console.log("Sorry, you're not signed in. Please sign in to add an item to your list");
 	    }
+	    // clear out the text box
+        $("#foodSearchBox").val("");
 
+        // return false so that the page does not refresh
 	    return false;
 	});
 
-
+	// triggered when the use clicks a remove button
 	$(document).on('click', '.removeItem', function() {
+		// assign this item's key to key var
 		var key = $(this).parent().parent().attr('data-key');
+
+		// remove the item from firebase then remove this row
 		fooddb.child(key).remove();
 		$(this).parent().parent().remove();
+
+		// if there are no longer any items in the table, hide the panels
 		if ($('tbody').children().length === 1) {
 			$('.panel').hide();
 		}
@@ -277,7 +305,7 @@ $(document).ready(function() {
 
 	var startPos;
 	   
-	    // This function get's the user's location
+    // This function get's the user's location
 	var geoSuccess = function(position) {
 	 		startPos = position;
 
@@ -286,7 +314,8 @@ $(document).ready(function() {
 		}; // closes geoSuccess function
 
 	var map;
-	    // This function initiates the map
+
+    // This function initiates the map
 	function initMap() {
 		// This takes the user's location and separates the lat and long
 		var uLat = startPos.coords.latitude;
@@ -294,8 +323,8 @@ $(document).ready(function() {
 		var uluru = {lat: uLat, lng: uLng}
 		// Adds the map to the to the html
 	    map = new google.maps.Map(document.getElementById('map'), {
-	      center: uluru,
-	      zoom: 12
+			center: uluru,
+			zoom: 12
 	    }); // Closes new google.maps function
 
 	    // This object creates a marker on the map at the user's location
@@ -310,7 +339,8 @@ $(document).ready(function() {
 	    	// icon: iconBase + 'parking_lot_maps.png',
 	    	map: map
 	    }); // Closes the marker object
-	   // Calls the in google function to give markers info windows
+
+		// Calls the in google function to give markers info windows
 	    infowindow = new google.maps.InfoWindow();
 
 	    // This creates the auto search for nearby grocers
@@ -319,13 +349,11 @@ $(document).ready(function() {
 	      location: uluru,
 	      radius: 500,
 	      query: "grocery+store",
-	      // type: ["grocery_or_supermarket"],
-	      // keyword: ["grocery"],
 	      rankBy: google.maps.places.RankBy.PROMINENCE
 	    }, callback);
 	}; // closes initMap
 
-	    // runs the createMarker function for each serach reult term
+    // runs the createMarker function for each serach reult term
 	function callback(results, status) {
 	    if (status === google.maps.places.PlacesServiceStatus.OK) {
 	    	for (var i = 0; i < 11; i++) {
@@ -338,17 +366,16 @@ $(document).ready(function() {
 	function createMarker(place) {
 	    var placeLoc = place.geometry.location;
 	    var marker = new google.maps.Marker({
-	      map: map,
-	      icon: "assets/images/nomzMapIcon.png",
-	      animation: google.maps.Animation.DROP,
-	      position: place.geometry.location
+			map: map,
+			icon: "assets/images/nomzMapIcon.png",
+			animation: google.maps.Animation.DROP,
+			position: place.geometry.location
 	    }); // closes the marker function
 
 	    // This is a listener for user clicks to on markers, when clicked it will display marker info
 	    google.maps.event.addListener(marker, 'click', function() {
-	      infowindow.setContent(place.name);
-	      infowindow.open(map, this);
+			infowindow.setContent(place.name);
+			infowindow.open(map, this);
 	    }); // closes the event listener
 	} // closes the createMarker function
-
-}); 
+}); // end of $(document).ready function
