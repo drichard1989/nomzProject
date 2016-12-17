@@ -147,12 +147,12 @@ $(document).ready(function() {
 	    $("#userThumbnailImage").hide();
 	    $("#userName").html("");
 	    $("#signOutButton").hide();
-<<<<<<< HEAD
+
 	    $("#googleSignInButton").show();
-=======
+
 	    $("#signInDropdown").show();
 
->>>>>>> 93c55b56c419d13b3543013f79e6411b1715fe3a
+
 	    // reset global vars
 	    profilePicUrl = "";
 		userName = "";
