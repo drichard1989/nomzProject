@@ -107,25 +107,25 @@ $(document).ready(function() {
 				removeItem.append(removeButton);
 				itemRow.append(removeItem);
 
+				// append item name and nutrients list to the table above all other items, but below the header row
+				$('#headerRow').after(itemRow);
 				/*
 					if the table contains at least 1 item
 					the length of tbody will be 1 when the table only contains the header row
 				*/
-				console.log('tbody length is ' + $('tbody').children().length);
+				// console.log('tbody length is ' + $('tbody').children().length);
 				if ($('tbody').children().length > 1) {
 
-					// append item name and nutrients list to the table above all other items, but below the header row
-					$('#headerRow').after(itemRow);
 					// this displays the table and the map panels
 					$('.panel').show();
 					console.log("if triggered");
 				}
 				// if the table only contains 
-				else {
+				/*else {
 					// append item name and nutrients list to container
 					$('.table').append(itemRow);
 					console.log("Else triggered");
-				}
+				}*/
 
 				// if the user has just loaded the page
 				if (!userMap) {
