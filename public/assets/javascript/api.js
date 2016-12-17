@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 	};
 	var userdb;
-	var userID = "undefined";
+	var userID = "9aI9Fw2Q1Nd2QOXKAbjZLSjggc93";
 	var newFood;
 	var fooddb;
 	var item;
