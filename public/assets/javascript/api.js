@@ -116,13 +116,6 @@ $(document).ready(function() {
 					$('#headerRow').after(itemRow);
 					// this displays the table and the map panels
 					$('.panel').show();
-
-					// if the user has just loaded the page
-					if (!userMap) {
-						// Calls the geoSuccess function and sets userMap to true
-						navigator.geolocation.getCurrentPosition(geoSuccess);
-						userMap = true;
-					}
 				}
 				// if the table only contains 
 				else {
@@ -131,11 +124,11 @@ $(document).ready(function() {
 				}
 
 				// if the user has just loaded the page
-					if (!userMap) {
-						// Calls the geoSuccess function and sets userMap to true
-						navigator.geolocation.getCurrentPosition(geoSuccess);
-						userMap = true;
-					}
+				if (!userMap) {
+					// Calls the geoSuccess function and sets userMap to true
+					navigator.geolocation.getCurrentPosition(geoSuccess);
+					userMap = true;
+				}
 			}); // end of child_added event listener
 	  }); // end of authentication function
 	}); // end of sign in event listener
@@ -288,7 +281,7 @@ $(document).ready(function() {
 		    };
 	    }
 	    else {
-	    	console.log("Sorry, you're not signed in. Please sign in to add an item to your list");
+	    	$('#signInModal').modal();
 	    }
 	    // clear out the text box
         $("#foodSearchBox").val("");
