@@ -48,20 +48,21 @@ $(document).ready(function() {
 		    // set signedIn to true
 		    signedIn = true;
 
-		    
-	        // if (user) {
-				$("#userImage").attr("src", profilePicUrl);
-				$("#userThumbnailImage").show();
-				$("#userName").html(userName);
-				$("#signOutButton").show();
-				$("#signInDropdown").hide();
+		    // display user info on nav
+			$("#userImage").attr("src", profilePicUrl);
+			$("#userThumbnailImage").show();
+			$("#userName").html(userName);
+			$("#signOutButton").show();
+			$("#signInDropdown").hide();
 
-				database.ref().push(users);
-				userdb =  database.ref('/users/' + userID);
-				fooddb = database.ref('/users/' + userID + '/food/');
-	        // };
+			// create assign references to firebase nodes 
+			database.ref().push(users);
+			userdb =  database.ref('/users/' + userID);
+			fooddb = database.ref('/users/' + userID + '/food/');
 
+			// event listener that waits for an item to be added to the current user's food database
 	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
+	        	// create a jQuery row element with class itemRow and data-key attribute with the key for the added item 
 				var itemRow = $('<tr class="itemRow" data-key="' + snapshot.key + '">');
 
 				// create table data for the item name and append it to the row
@@ -106,20 +107,28 @@ $(document).ready(function() {
 				removeItem.append(removeButton);
 				itemRow.append(removeItem);
 
+				/*
+					if the table contains at least 1 item
+					the length of tbody will be 1 when the table only contains the header row
+				*/
 				if ($('tbody').children().length > 1) {
-					// append item name and nutrients list to container
+					// append item name and nutrients list to the table above all other items, but below the header row
 					$('#headerRow').after(itemRow);
+					// this displays the table and the map panels
 					$('.panel').show();
+
+					// if the user has just loaded the page
 					if (!userMap) {
 						// Calls the geoSuccess function and sets userMap to true
 						navigator.geolocation.getCurrentPosition(geoSuccess);
 						userMap = true;
 					}
 				}
-				else {
+				// if the table only contains 
+				/*else {
 					// append item name and nutrients list to container
 					$('.table').append(itemRow);
-				}
+				}*/
 			});
 	  });
 	});
