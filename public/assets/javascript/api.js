@@ -61,7 +61,7 @@ $(document).ready(function() {
 			fooddb = database.ref('/users/' + userID + '/food/');
 
 			// run event listener for child_added in firebase
-			childAddedListener();
+			newUser();
 			/*// event listener that waits for an item to be added to the current user's food database
 	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
 	        	// create a jQuery row element with class itemRow and data-key attribute with the key for the added item 
@@ -127,7 +127,7 @@ $(document).ready(function() {
 		}); // end of authentication function
 	}); // end of sign in event listener
 
-	function childAddedListener() {
+	function newUser() {
 		// event listener that waits for an item to be added to the current user's food database
 	    database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
 	    	// create a jQuery row element with class itemRow and data-key attribute with the key for the added item 
@@ -191,6 +191,7 @@ $(document).ready(function() {
 			}
 		}); // end of child_added event listener
     } // end of childAddedListener function
+    
 	// signs user out
 	$("#navbarParent").on("click", "#signOutButton", function(){
 		// signs the user out and consoles success message
