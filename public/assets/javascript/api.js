@@ -60,7 +60,9 @@ $(document).ready(function() {
 			userdb =  database.ref('/users/' + userID);
 			fooddb = database.ref('/users/' + userID + '/food/');
 
-			// event listener that waits for an item to be added to the current user's food database
+			// run event listener for child_added in firebase
+			childAddedListener();
+			/*// event listener that waits for an item to be added to the current user's food database
 	        database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
 	        	// create a jQuery row element with class itemRow and data-key attribute with the key for the added item 
 				var itemRow = $('<tr class="itemRow" data-key="' + snapshot.key + '">');
@@ -121,10 +123,74 @@ $(document).ready(function() {
 					navigator.geolocation.getCurrentPosition(geoSuccess);
 					userMap = true;
 				}
-			}); // end of child_added event listener
+			}); // end of child_added event listener*/
 		}); // end of authentication function
 	}); // end of sign in event listener
 
+	function childAddedListener() {
+		// event listener that waits for an item to be added to the current user's food database
+	    database.ref('/users/' + userID + '/food/').on('child_added', function(snapshot) {
+	    	// create a jQuery row element with class itemRow and data-key attribute with the key for the added item 
+			var itemRow = $('<tr class="itemRow" data-key="' + snapshot.key + '">');
+
+			// create table data for the item name and append it to the row
+			var itemName = $('<td class="itemName">');
+			itemName.text(snapshot.val().foodItem);
+			itemRow.append(itemName);
+
+			// fat
+			var itemFat = $('<td class="itemFat">');
+			itemFat.text(snapshot.val().itemFat);
+			itemRow.append(itemFat);
+
+			// calories
+			var itemCal = $('<td class="itemCal">');
+			itemCal.text(snapshot.val().itemCal);
+			itemRow.append(itemCal);
+
+			// sugar
+			var itemSugar = $('<td class="itemSugar">');
+			itemSugar.text(snapshot.val().itemSugar);
+			itemRow.append(itemSugar);
+
+			// sodium
+			var itemNA = $('<td class="itemNA">');
+			itemNA.text(snapshot.val().itemNA);
+			itemRow.append(itemNA);
+
+			// protein
+			var itemProt = $('<td class="itemProt">');
+			itemProt.text(snapshot.val().itemProt);
+			itemRow.append(itemProt);
+
+			// carbs
+			var itemCarbs = $('<td class="itemCarbs">');
+			itemCarbs.text(snapshot.val().itemCarbs);
+			itemRow.append(itemCarbs);
+
+			// remove item
+			var removeItem = $('<td>');
+			var removeButton = $('<button class="btn btn-danger removeItem">');
+			removeButton.text("remove");
+			removeItem.append(removeButton);
+			itemRow.append(removeItem);
+
+			// append item name and nutrients list to the table above all other items, but below the header row
+			$('#headerRow').after(itemRow);
+
+			// if the table has an item in it, show the panels
+			if ($('tbody').children().length > 1) {
+				$('.panel').show();
+			}
+
+			// if the user has just loaded the page
+			if (!userMap) {
+				// Calls the geoSuccess function and sets userMap to true
+				navigator.geolocation.getCurrentPosition(geoSuccess);
+				userMap = true;
+			}
+		}); // end of child_added event listener
+    } // end of childAddedListener function
 	// signs user out
 	$("#navbarParent").on("click", "#signOutButton", function(){
 		// signs the user out and consoles success message
